@@ -1,0 +1,197 @@
+/* fonts for days */
+@font-face {
+	font-family: openlight;
+	src: url('../fonts/OpenSans-Light.ttf');
+}
+
+@font-face {
+	font-family: openlight_IE;
+	src: url('../fonts/OpenSans-Light.eot');
+}
+
+@font-face {
+	font-family: openregular;
+	src: url('../fonts/OpenSans-Regular.ttf');
+}
+
+@font-face {
+	font-family: openregular_IE;
+	src: url('../fonts/OpenSans-Regular.eot');
+}
+
+@font-face {
+	font-family: opensemi;
+	src: url('../fonts/OpenSans-Semibold.ttf');
+}
+
+@font-face {
+	font-family: opensemi_IE;
+	src: url('../fonts/OpenSans-Semibold.eot');
+}
+
+
+/* general  */
+* {
+	font-family: openlight, openlight_IE, Calibri;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:visited {
+	color: black;
+}
+
+a:link {
+	color: black;
+}
+
+a:active {
+	color: black;
+}
+
+a:hover {
+	color: #f15d2f;
+}
+
+input {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background: transparent;
+	border: none;
+	outline: none;
+}
+
+
+html, body {
+	height: 100%;
+	width: 100%;
+	/*min-width: 1080px;*/
+	padding: 0;
+	margin: 0;
+	font-size: 14px;
+	width: 100%;
+}
+
+body {
+	height: 100%;
+	width: 100%;
+	background-color: #fc9608;
+	position: relative;
+}
+
+.wrapper {
+	text-align: center;
+	color: #fafafa;
+	width: 95%;
+	margin: 0 auto;
+}
+
+.logo-text {
+	font-size: 3.5em;
+}
+
+.lt-bold {
+	font-family: opensemi, opensemi_IE, Calibri;
+}
+
+.cat-player {
+	top: 25px;
+	max-width: 400px;
+	height: 270px;
+	border: 3px solid #fafafa;
+	margin: 0 auto;
+	position: relative;
+}
+
+.cat {
+	position: absolute;
+	width: 150px;
+	height: 150px;
+	top: 50%;
+	margin-top: -75px;
+	left: 50%;
+	margin-left: -75px;
+}
+
+.time-bar {
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+}
+
+.block {
+	position: absolute;
+	background: #fafafa;
+	width: 2px;
+	background: #fafafa;
+	width: 2px;
+	height: 16px;
+	bottom: 15px;
+}
+
+.b-1 {
+	left: 21px;
+}
+
+.b-2 {
+	left: 25px;
+}
+
+.line {
+	position: absolute;
+	width: 85%;
+	height: 2px;
+	background: #fafafa;
+	bottom: 22px;
+	left: 30px;
+}
+
+.user-info {
+	position: relative;
+	width: 200px;
+	margin: 0 auto;
+	top: 75px;
+}
+
+.the-input {
+	position: relative;
+	color: #000000;
+	font-family: openregular;
+	border-bottom: 2px solid #fafafa;
+	width: 200px;
+	font-size: 1.5em;
+	z-index: 2;
+}
+
+.the-text{
+	position: absolute;	
+	left: 50%;
+	top: 1px;
+	margin-left: -50px;
+	font-size: 1.5em;
+	z-index: 1;
+}
+
+.ui-2{
+	top: 100px;
+}
+
+.button{
+	display: inline-block;
+	position: relative;
+	top: 150px;
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+	border: 1px solid #fafafa;
+	font-size: 1.2em;
+	margin: 0 15px;
+}
+
+.button:hover{
+	background: rgba(255,255,255,0.3);
+	cursor: pointer;
+}
