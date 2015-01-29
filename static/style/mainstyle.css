@@ -240,9 +240,9 @@ body {
 }
 
 .nav-menu{
-	position: absolute;
+	position: fixed;
 	top: 0;
-	left: -300px;
+	left: 0px;
 	height: 100%;
 	width: 300px;
 	background: #e2e2e2;
@@ -308,6 +308,7 @@ body {
 	position: relative;
 	top: 150px;
 	text-align: center;
+	padding-left: 300px;
 }
 
 .home-icon{

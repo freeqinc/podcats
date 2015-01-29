@@ -39,6 +39,12 @@ $(window).load(function() {
 			duration: 200,
 			easing: 'linear'
 		});
+		$('.home-icons').velocity({
+			paddingLeft: 300
+		},{
+			duration: 200,
+			easing: 'linear'
+		});
 	});
 
 
@@ -46,6 +52,12 @@ $(window).load(function() {
 	$('.menu-close').click(function(){
 		$('.nav-menu').velocity({
 			left: -300
+		},{
+			duration: 200,
+			easing: 'linear'
+		});
+		$('.home-icons').velocity({
+			paddingLeft: 0
 		},{
 			duration: 200,
 			easing: 'linear'
