@@ -27,4 +27,29 @@ $(window).load(function() {
 		}
 	});
 
+	$('.button, .link-button').click(function(){
+		$(this).find('.hidden-link')[0].click();
+	});
+
+
+	$('.menu-button').click(function(){
+		$('.nav-menu').velocity({
+			left: 0
+		},{
+			duration: 200,
+			easing: 'linear'
+		});
+	});
+
+
+
+	$('.menu-close').click(function(){
+		$('.nav-menu').velocity({
+			left: -300
+		},{
+			duration: 200,
+			easing: 'linear'
+		});
+	});
+
 });
