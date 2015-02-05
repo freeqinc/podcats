@@ -31,6 +31,11 @@ $(window).load(function() {
 		$(this).find('.hidden-link')[0].click();
 	});
 
+	$('.button2').click(function(event){
+		event.stopPropagation();
+		$(this).find('.hidden-link2')[0].click();
+	});
+
 
 	$('.menu-button').click(function(){
 		$('.nav-menu').velocity({
@@ -40,11 +45,12 @@ $(window).load(function() {
 			easing: 'linear'
 		});
 		$('.home-icons').velocity({
-			paddingLeft: 300
+			paddingLeft: 0
 		},{
 			duration: 200,
 			easing: 'linear'
 		});
+
 	});
 
 
@@ -62,6 +68,9 @@ $(window).load(function() {
 			duration: 200,
 			easing: 'linear'
 		});
+
 	});
+
+
 
 });
