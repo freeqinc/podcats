@@ -9,10 +9,10 @@
   "author": "PodCats",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.11.2",
-    "express-handlebars": "^1.1.0",
-    "mongodb": "^1.4.30",
-    "mongoose": "^3.8.23"
+    "express": "4.11.2",
+    "express-handlebars": "1.1.0",
+    "mongodb": "1.4.30",
+    "mongoose": "3.8.23"
   },
   "repository": {
     "type":"git",
