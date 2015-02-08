@@ -1,4 +1,10 @@
-lab3
-====
+PodCats Application 
 
-Lab 3 for Intro HCI: client-side interactivity
+=================================
+
+Project for CSE 170/COGS 120
+
+Install Dependencies:
+npm install
+
+
