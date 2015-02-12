@@ -40,13 +40,13 @@ $(window).load(function() {
 			});
 
 			course.find('.course-expand-1').velocity('stop').velocity({
-				rotateX: '45deg',
+				rotateX: '20deg',
 			},{
 				duration: animateTime,
 			});
 
 			course.find('.course-expand-2').velocity('stop').velocity({
-				rotateX: '-45deg',
+				rotateX: '-20deg',
 			},{
 				duration: animateTime,
 			});
