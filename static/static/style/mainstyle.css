@@ -1,0 +1,430 @@
+/* fonts for days */
+@font-face {
+	font-family: openlight;
+	src: url('../fonts/OpenSans-Light.ttf');
+}
+
+@font-face {
+	font-family: openlight_IE;
+	src: url('../fonts/OpenSans-Light.eot');
+}
+
+@font-face {
+	font-family: openregular;
+	src: url('../fonts/OpenSans-Regular.ttf');
+}
+
+@font-face {
+	font-family: openregular_IE;
+	src: url('../fonts/OpenSans-Regular.eot');
+}
+
+@font-face {
+	font-family: opensemi;
+	src: url('../fonts/OpenSans-Semibold.ttf');
+}
+
+@font-face {
+	font-family: opensemi_IE;
+	src: url('../fonts/OpenSans-Semibold.eot');
+}
+
+
+/* general  */
+* {
+	font-family: openlight, openlight_IE, Calibri;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:visited {
+	color: black;
+}
+
+a:link {
+	color: black;
+}
+
+a:active {
+	color: black;
+}
+
+a:hover {
+	color: #f15d2f;
+}
+
+.hidden-link{
+	display: none;
+}
+
+input {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background: transparent;
+	border: none;
+	outline: none;
+}
+
+
+html, body {
+	height: 100%;
+	width: 100%;
+	/*min-width: 1080px;*/
+	padding: 0;
+	margin: 0;
+	font-size: 14px;
+	width: 100%;
+}
+
+body {
+	height: 100%;
+	width: 100%;
+	background-color: #fc9608;
+	position: relative;
+}
+
+.wrapper {
+	text-align: center;
+	color: #fafafa;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.logo-text {
+	font-size: 3.5em;
+}
+
+.lt-bold {
+	font-family: opensemi, opensemi_IE, Calibri;
+}
+
+.cat-player {
+	top: 25px;
+	max-width: 400px;
+	height: 270px;
+	border: 3px solid #fafafa;
+	margin: 0 auto;
+	position: relative;
+}
+
+.cat {
+	position: absolute;
+	width: 150px;
+	height: 150px;
+	top: 50%;
+	margin-top: -75px;
+	left: 50%;
+	margin-left: -75px;
+}
+
+.time-bar {
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+}
+
+.block {
+	position: absolute;
+	background: #fafafa;
+	width: 2px;
+	background: #fafafa;
+	width: 2px;
+	height: 16px;
+	bottom: 15px;
+}
+
+.b-1 {
+	left: 21px;
+}
+
+.b-2 {
+	left: 25px;
+}
+
+.line {
+	position: absolute;
+	width: 85%;
+	height: 2px;
+	background: #fafafa;
+	bottom: 22px;
+	left: 30px;
+}
+
+.user-info {
+	position: relative;
+	width: 200px;
+	margin: 0 auto;
+	top: 75px;
+}
+
+.the-input {
+	position: relative;
+	color: #000000;
+	font-family: openregular;
+	border-bottom: 2px solid #fafafa;
+	width: 200px;
+	font-size: 1.5em;
+	z-index: 2;
+}
+
+.the-text{
+	position: absolute;	
+	left: 50%;
+	top: 1px;
+	margin-left: -50px;
+	font-size: 1.5em;
+	z-index: 1;
+}
+
+.ui-2{
+	top: 100px;
+}
+
+.button{
+	display: inline-block;
+	position: relative;
+	top: 150px;
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+	border: 1px solid #fafafa;
+	font-size: 1.2em;
+	margin: 0 15px;
+}
+
+.link-button{
+	cursor: pointer;
+}
+
+.button:hover{
+	background: rgba(255,255,255,0.3);
+	cursor: pointer;
+}
+
+
+/*home page things */
+
+
+.menu-button{
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	width: 50px;
+	cursor: pointer;
+}
+
+.burger-icon{
+	color: #fafafa;
+	font-size: 3em;
+}
+
+.navigation{
+	position: fixed;
+	left: 0;
+	width: 100vw;
+	height: 60px;
+	background: #fc9608;
+	z-index: 99999;
+}
+
+.nav-logo{
+	width: 46px;
+	top: 7px;
+	position: relative;
+}
+
+.bread{
+	height: 100%;
+	position: absolute;
+	right: 20px;
+	line-height: 60px;
+	font-size: 1.3em;
+	font-family: openregular, openregular_IE, Calibri;
+	text-decoration: underline;
+}
+
+.nav-menu{
+	position: fixed;
+	top: 0;
+	left: -300px;
+	height: 150vh;
+	width: 300px;
+	background: #e2e2e2;
+	box-shadow: 0px 0px 20px #aaaaaa;
+	overflow: hidden;
+	z-index: 999999;
+}
+
+.menu-close{
+	position: absolute;
+	color: #aaaaaa;
+	font-size: 1.5em;
+	right: 20px;
+	top: 20px;
+	cursor: pointer;
+}
+
+.menu-close:hover{
+	color: #fc9608;
+}
+
+.orange-cat{
+	position: relative;
+	width: 100px;
+	height: 100px;
+	left: 50%;
+	margin-left: -50px;
+	top: 25px;
+}
+
+.first-menu-item{
+	border-top: 1px solid #bababa;
+}
+
+.menu-items{
+	position: relative;
+	top: 50px;
+}
+
+.menu-item{
+	position: relative;
+	width: 100%;
+	height: 60px;
+	line-height: 60px;
+	padding-left: 20px;
+	font-size: 1.5em;
+	cursor: pointer;
+	border-bottom: 1px solid #bababa;
+	font-family: openregular, openregular_IE, Calibri;
+	color: #fc9608;
+}
+
+.menu-item:hover{
+	background: rgba(255,255,255,0.3);
+}
+
+.logout{
+	color: #aaaaaa;
+}
+
+
+.home-icons{
+	overflow: hidden;
+	width: 100vw;
+	position: relative;
+	top: 60px;
+	text-align: center;
+	min-height: 100%;
+}
+
+.home-icon{
+	width: 150px;
+	text-align: center;
+	position: relative;
+	color: #aaaaaa;
+	font-size: 5em;
+	cursor: pointer;
+	display: inline-block;
+	margin: 0 10px;
+}
+
+.home-icon-text{
+	position: relative;
+	top: -50px;
+	color: #aaaaaa;
+	font-size: .25em;
+}
+
+.home-icon:hover *{
+	color: #fc9608;
+}
+
+.breadcrumbs{
+	position: relative;
+	text-align: left;
+	top: 72px;
+	left: 15px;
+	width: 90%;
+	font-size: 1.5em;
+	color: 	#fc9608;
+	font-weight: bold;
+}
+
+.class-icon{
+	position: relative;
+	width: 100%;
+	height: 100px;
+	line-height: 100px;
+	font-size: 2.5em;
+	font-weight: bold;
+	color: #757575;
+	cursor: pointer;
+	border-bottom: 1px solid #dadada;
+}
+
+.class-icon-first{
+	border-top: 1px solid #dadada;
+	margin-top: 25px;
+}
+
+.class-icon:hover{
+	color: #fc9608;
+	background: rgba(255,255,255,0.3);
+}
+
+.class-live{
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	display: none;
+	top: 0;
+	right: 0;
+}
+
+.live-indicator{
+	width: 100%;
+	text-align: center;
+	position: absolute;
+	line-height: .4em;
+	font-size: .45em;
+	color: #00AC26;
+	bottom: 9px;
+	right: -5px;
+}
+
+.class-live-example{
+	display: block;
+}
+
+.record-button{
+	position: absolute;
+	top: 25px;
+	right: 20px;
+	border: 2px solid #00AC26;
+	color: #00AC26;
+	border-radius: 3px;
+	font-size: .65em;
+	font-weight: bold;
+	height: 50px;
+	width: 100px;
+	line-height: 50px;
+	overflow: hidden;
+}
+
+.record-button:hover{
+	background: rgba(0,255,0,0.2);
+}
+
+.podcats-week{
+	position: absolute;
+	line-height: .5em;
+	font-size: .45em;
+	width: 100%;
+	bottom: 10px;
+	color: #aaaaaa;
+}
+
+
