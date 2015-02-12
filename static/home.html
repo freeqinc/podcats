@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name=viewport content="width=device-width, initial-scale=.6">
-	<link rel="stylesheet" type="text/css" href="./style/mainstyle.css">
+	<link rel="stylesheet" type="text/css" href="./style/style.css">
 	<link rel="stylesheet" type="text/css" href="./style/homestyle.css">
 	<link rel="stylesheet" type="text/css" href="./icomoon/style.css">
 	<link rel="icon" href="./assets/icon.ico" type="image/x-icon" />
@@ -13,75 +13,146 @@
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script
 	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
-	<script src="./js/miscanimation.js"></script>
-	<script src="./js/clock.js"></script>
+	<script src="./js/jquery.ba-dotimeout.min.js"></script>
 	<script src="./js/velocity.min.js"></script>
+	<script src="./js/nav-animation.js"></script>
+	<script src="./js/common-animation.js"></script>
+	<script src="./js/course-fold.js"></script>
 	<title>PodCats | Home</title>
 </head>
 
 <body>
-	<div class="wrapper home-wrapper">
-		<div class="navigation">
-			<div class="menu-button">
-				<span class="icon-list burger-icon"></span>
-			</div>
-			<div class="bread link-button"><img class="nav-logo" src="./assets/white_cat.png"><a href="./home.html" class="hidden-link"></a></div>
+	<div class="navigation">
+		<div class="hamburger-button">
+			<div class="burger-1 burger-line"></div>
+			<div class="burger-2 burger-line"></div>
+			<div class="burger-3 burger-line"></div>
 		</div>
-
-	</div>
-	<div class="nav-menu">
-		<span class="icon-close menu-close"></span>
-		<img src="./assets/orange_cat.png" class="orange-cat" alt="orange-cat">
-		<div class="menu-items">
-			<div class="menu-item first-menu-item link-button">Home<a href="./home.html" class="hidden-link"></a></div>
-			<div class="menu-item">Help</div>
-			<div class="menu-item">Settings</div>
-			<div class="menu-item logout link-button">Logout<a href="./index.html" class="hidden-link"></a></div>
+		<div class="nav-logo">
+			POD<span class="logo-bold">CATS</span> 
 		</div>
 	</div>
+	<div class="navigation-expand">
+		<div class="navigation-button link-button">
+			<span class="icon-home"></span>
+			<div class="nav-icon-text">Home</div>
+			<a href="./home.html" class="hidden-link"></a>
+		</div>
+		<div class="navigation-button link-button">
+			<span class="icon-cog"></span>
+			<div class="nav-icon-text">Settings</div>
+			<a href="./settings.html" class="hidden-link"></a>
 
-	<div class="breadcrumbs">Home</div>
-	<div class="home-icons">
-		
-		<div class="class-icon class-icon-first link-button">
+		</div>
+		<div class="navigation-button link-button">
+			<span class="icon-question"></span>
+			<div class="nav-icon-text">Help</div>
+			<a href="./help.html" class="hidden-link"></a>
+		</div>
+		<div class="navigation-button link-button">
+			<span class="icon-switch"></span>
+			<div class="nav-icon-text">Logout</div>
+			<a href="./index.html" class="hidden-link"></a>
+		</div>
+	</div>
+
+
+	<div class="page-wrap">
+
+		<div class="course course-1">
 			CHEM6A
-			<div class="class-live">
-				LIVE <span class="icon-podcast"></span>
+			<div class="course-expand">
+				<div class="course-expand-1">
+					<div class="ce1-text">
+						PodCats it
+						<div class="ce1-sub">
+							currently offline
+						</div>
+					</div>
+				</div>
+				<div class="course-expand-2">
+					<div class="ce2-text">
+						View lectures
+					</div>
+				</div>
 			</div>
-			<a href="#" class="hidden-link"></a>
+			<div class="course-tag"></div>
 		</div>
-		<div class="class-icon link-button">
+		<div class="course course-2">
 			CSE124
-			<div class="class-live class-live-example">
-				<div class="live-indicator">
-					LIVE <span class="icon-podcast"></span>
+			<div class="course-expand">
+				<div class="course-expand-1">
+					<div class="ce1-text">
+						PodCats it
+						<div class="ce1-sub">
+							currently offline
+						</div>
+					</div>
 				</div>
-				<div class="record-button button2">
-					RECORD<a href="./index.html" class="hidden-link2"</a>
+				<div class="course-expand-2">
+					<div class="ce2-text">
+						View lectures
+					</div>
 				</div>
 			</div>
-			<a href="./class.html" class="hidden-link"></a>
+			<div class="course-tag"></div>
 		</div>
-		<div class="class-icon link-button">
+		<div class="course course-3">
 			CSE141
-			<div class="class-live">
-				LIVE <span class="icon-podcast"></span>
+			<div class="course-expand">
+				<div class="course-expand-1">
+					<div class="ce1-text">
+						PodCats it
+						<div class="ce1-sub">
+							currently offline
+						</div>
+					</div>
+				</div>
+				<div class="course-expand-2">
+					<div class="ce2-text">
+						View lectures
+					</div>
+				</div>
 			</div>
-			<a href="#" class="hidden-link"></a>
+			<div class="course-tag"></div>
 		</div>
-		<div class="class-icon link-button">
+		<div class="course course-4">
 			CSE141L
-			<div class="class-live">
-				LIVE <span class="icon-podcast"></span>
+			<div class="course-expand">
+				<div class="course-expand-1">
+					<div class="ce1-text">
+						PodCats it
+						<div class="ce1-sub">
+							currently offline
+						</div>
+					</div>
+				</div>
+				<div class="course-expand-2">
+					<div class="ce2-text">
+						View lectures
+					</div>
+				</div>
 			</div>
-			<a href="#" class="hidden-link"></a>
+			<div class="course-tag"></div>
 		</div>
-		<div class="class-icon link-button">
+		<div class="course course-5">
 			CSE170
-			<div class="class-live">
-				LIVE <span class="icon-podcast"></span>
+			<div class="course-expand">
+				<div class="course-expand-1">
+					<div class="ce1-text">
+						PodCats it
+						<div class="ce1-sub">
+							currently offline
+						</div>
+					</div>
+				</div>
+				<div class="course-expand-2">
+					<div class="ce2-text">
+						View lectures
+					</div>
+				</div>
 			</div>
-			<a href="#" class="hidden-link"></a>
+			<div class="course-tag"></div>
 		</div>
 
 	</div>
