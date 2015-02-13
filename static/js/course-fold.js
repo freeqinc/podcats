@@ -148,10 +148,14 @@ $(window).load(function() {
 		//expand($('.course-1'));
 
 		$('.course').click(function(){
-			if($(this).height() == 150)
+			if($(this).height() == 150){
 				expand($(this));
-			else
+				$('.course').not(this).each(function(){
+					contract($(this));
+				});
+			} else { 
 				contract($(this));
+			}
 		});
 
 
