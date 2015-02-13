@@ -37,6 +37,7 @@ app.listen(port, function() {
 });
 
 // routes
+app.get('/', index.login)
 app.get('/classes', home.classList);
 app.get('/archive', lectures.archivedLectures);
 app.get('/podcatsit', podcatsit.liveLecture);
