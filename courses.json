@@ -1,0 +1,50 @@
+{
+	"courses" :
+	{
+		"CHEM 6A" : 
+		[
+			{
+				"marks" : [],
+				"elapsed" : 0,
+				"isLive" : false,
+				"timeString" : "0:00:00"
+			}
+		],
+		"CSE 124" : 
+		[
+			{
+				"marks" : [],
+				"elapsed" : 0,
+				"isLive" : false,
+				"timeString" : "0:00:00"
+			}
+		],
+		"CSE 141" : 
+		[
+			{
+				"marks" : [],
+				"elapsed" : 0,
+				"isLive" : false,
+				"timeString" : "0:00:00"
+			}
+		],
+		"CSE 141L" : 
+		[
+			{
+				"marks" : [],
+				"elapsed" : 0,
+				"isLive" : false,
+				"timeString" : "0:00:00"
+			}
+		],
+		"CSE 170" : 
+		[
+			{
+				"marks" : [],
+				"elapsed" : 0,
+				"isLive" : false,
+				"timeString" : "0:00:00"
+			}
+		]
+	}
+}

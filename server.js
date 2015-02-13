@@ -38,8 +38,8 @@ app.listen(port, function() {
 
 // routes
 app.get('/', index.login);
-app.get('/home.html', home.homePage);
-app.get('/class.html', classes.archivedLectures);
+app.get('/classes', home.homePage);
+app.get('/archieve', classes.archivedLectures);
 app.get('/podcatsit.html', podcatsit.liveLecture);
 app.get('/help.html', help.helpPage);
 app.get('/settings.html', settings.settingsPage);
