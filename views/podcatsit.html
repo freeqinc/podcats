@@ -30,22 +30,17 @@
 		<div class="time">{{timeString}}</div>
 		<div class="podcats-button" id="pb-1">!</div>
 		<div class="podcats-button" id="pb-2">?</div>
-		<div class="bookmark" id="stack">
-		{{#each marks}}
-		<br/>
-		<div class="bookmark-time">
-			{{time}}
-		</div>
-		<div class="bookmark-type">
-			{{type}}
-		</div>
-		{{/each}}
-			<!--<div class="bookmark-type">
-				EXCLAMATION
+		<div id="stack">
+			{{#each marks}}
+			<div class="bookmark">
+				<div class="bookmark-time">
+					{{time}}
+				</div>
+				<div class="bookmark-type">
+					{{type}}
+				</div>
 			</div>
-			<div class="bookmark-time">
-				00:00:00
-			</div>-->
+			{{/each}}
 		</div>
 		<script type="text/javascript" src="./js/bookmark.js"></script>
 	</div>

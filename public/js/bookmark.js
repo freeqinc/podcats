@@ -51,7 +51,7 @@ $(document).ready(function(){
         else if($(this).attr('id').toString() == "pb-2") {
             type = "BAD";
         }
-        var markHTML = '<br/><div class="bookmark-time">'+time+'</div><div class="bookmark-type">'+type+'</div>';
+        var markHTML = '<div class="bookmark"><div class="bookmark-time">'+time+'</div><div class="bookmark-type">'+type+'</div></div>';
         $.ajax({
             url: '/bookmark?time='+time+'&type='+type,
             type: 'POST',
