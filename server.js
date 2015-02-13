@@ -46,3 +46,4 @@ app.get('/settings', settings.settingsPage);
 
 app.get("/timer", podcatsit.timer);
 app.post("/bookmark", podcatsit.bookmark);
+app.post("/validate", index.validate);

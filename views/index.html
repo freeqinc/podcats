@@ -40,11 +40,23 @@
 		</div>
 		
 		<div class="button login">LOGIN
-			<a href="/classes" class="hidden-link"></a>
+			<a class="hidden-link"></a>
 		</div>
 		<div class="button signup">SIGN UP</div>
-
-
+		<script type="text/javascript">
+			$(".login").click(function() {
+				var username = $(".ti-1").val();
+				var password = $(".ti-2").val();
+				$.post("/validate?username="+username+"&password="+password, function(result){
+					if(result["1"] && result["2"])
+						window.location.replace("/classes");
+					else {
+						alert("INVALID CREDENTIALS!");
+						return;
+					}
+				});
+			});
+		</script>
 
 	</div>
 </body>
