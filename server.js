@@ -7,7 +7,7 @@ var hbs = require('hbs');
 
 var index = require('./routes/index');
 var home = require('./routes/home');
-var classes = require('./routes/class');
+var lectures = require('./routes/class');
 var podcatsit = require('./routes/podcatsit');
 var help = require('./routes/help');
 var settings = require('./routes/settings');
@@ -38,8 +38,8 @@ app.listen(port, function() {
 
 // routes
 app.get('/', index.login);
-app.get('/classes', home.homePage);
-app.get('/archieve', classes.archivedLectures);
-app.get('/podcatsit.html', podcatsit.liveLecture);
-app.get('/help.html', help.helpPage);
-app.get('/settings.html', settings.settingsPage);
+app.get('/classes', home.classList);
+app.get('/archive', lectures.archivedLectures);
+app.get('/podcatsit', podcatsit.liveLecture);
+app.get('/help', help.helpPage);
+app.get('/settings', settings.settingsPage);
