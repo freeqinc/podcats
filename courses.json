@@ -2,49 +2,76 @@
 	"courses" :
 	{
 		"CHEM 6A" : 
-		[
+		{
+			"current":
 			{
 				"marks" : [],
 				"elapsed" : 0,
-				"isLive" : false,
+				"isLive" : true,
 				"timeString" : "0:00:00"
-			}
-		],
-		"CSE 124" : 
-		[
-			{
-				"marks" : [],
-				"elapsed" : 0,
-				"isLive" : false,
-				"timeString" : "0:00:00"
-			}
-		],
+			},
+			"archive": 
+			[
+				{
+					"marks" : [],
+					"elapsed" : 0,
+					"timeString" : "0:00:00"
+				}
+			]
+		},
 		"CSE 141" : 
-		[
+		{
+			"current":
 			{
 				"marks" : [],
 				"elapsed" : 0,
 				"isLive" : false,
 				"timeString" : "0:00:00"
-			}
-		],
+			},
+			"archive": 
+			[
+				{
+					"marks" : [],
+					"elapsed" : 0,
+					"timeString" : "0:00:00"
+				}
+			]
+		},
 		"CSE 141L" : 
-		[
+		{
+			"current":
 			{
 				"marks" : [],
 				"elapsed" : 0,
 				"isLive" : false,
 				"timeString" : "0:00:00"
-			}
-		],
-		"CSE 170" : 
-		[
+			},
+			"archive": 
+			[
+				{
+					"marks" : [],
+					"elapsed" : 0,
+					"timeString" : "0:00:00"
+				}
+			]
+		},
+ 		"CSE 170" : 
+		{
+			"current":
 			{
 				"marks" : [],
 				"elapsed" : 0,
 				"isLive" : false,
 				"timeString" : "0:00:00"
-			}
-		]
+			},
+			"archive": 
+			[
+				{
+					"marks" : [],
+					"elapsed" : 0,
+					"timeString" : "0:00:00"
+				}
+			]
+		}
 	}
 }
