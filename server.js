@@ -43,3 +43,6 @@ app.get('/archieve', classes.archivedLectures);
 app.get('/podcatsit.html', podcatsit.liveLecture);
 app.get('/help.html', help.helpPage);
 app.get('/settings.html', settings.settingsPage);
+
+app.get("/timer", podcatsit.timer);
+app.post("/bookmark", podcatsit.bookmark);
