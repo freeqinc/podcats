@@ -20,8 +20,8 @@ $(window).load(function() {
 	var newHeight = numCourses*150 + 200 + windowH - 210 - 150;
 	$('.page-wrap').css('height', newHeight);*/
 
-	var animateTime = 300;
-	var animateTime2 = 300;
+	var animateTime = 250;
+	var animateTime2 = 250;
 	function expand(course){
 		if(course.height() == 150){
 
@@ -141,17 +141,22 @@ $(window).load(function() {
 
 	setTimeout(function(){
 		$('.course-expand').fadeIn(0);
-		//expand($('.course-1'));
-		expand($('.course-1'));
 
+
+
+		//expand($('.course-1'));
+		//expand($('.course-1'));
+
+		$('.course').click(function(){
+			if($(this).height() == 150)
+				expand($(this));
+			else
+				contract($(this));
+		});
 
 
 		var lastScrollTop = 0;
-		$(window).on("scroll", function() {
-/*			var docViewTop = $(window).scrollTop();
-			var top = $('.course-1').offset().top;
-			var bottom = top + $('.course-1').height();
-			console.log(docViewTop + " " + top + " " + bottom);*/
+/*		$(window).on("scroll", function() {
 
 			$.doTimeout( 'scroll', 100, function(){
 				console.log("hello");
@@ -167,9 +172,9 @@ $(window).load(function() {
 			$('.course').each(function(i, obj){
 				animateCourse(i, $(this), scrollingDown);
 			});
-		});
+});*/
 
-	},50);
+},50);
 
 
 });

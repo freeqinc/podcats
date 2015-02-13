@@ -213,7 +213,8 @@ body {
 	overflow: hidden;
 	font-size: 3.5em;
 	color: #ffffff;
-	font-family: robothin;
+	font-family: robothin, robothin_IE, Calibri;
+	cursor: pointer;
 }
 
 .course-tag{
