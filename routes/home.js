@@ -1,7 +1,7 @@
 // var classes = require("../classes.json");
 var courses = require("../courses.json");
 
-exports.homePage = function(req, res){
+exports.classList = function(req, res){
 	var courseList = {"courses":[]};
 	/*for(var key in courses["courses"]) {
 		if (courses["courses"].hasOwnProperty(key)) {

@@ -30,25 +30,25 @@
 		</div>
 		<div class="nav-logo link-button">
 			POD<span class="logo-bold">CATS</span> 
-			<a href="/courses" class="hidden-link"></a>
+			<a href="/classes" class="hidden-link"></a>
 		</div>
 	</div>
 	<div class="navigation-expand">
 		<div class="navigation-button link-button">
 			<span class="icon-home"></span>
 			<div class="nav-icon-text">Home</div>
-			<a href="/courses" class="hidden-link"></a>
+			<a href="/classes" class="hidden-link"></a>
 		</div>
 		<div class="navigation-button link-button">
 			<span class="icon-cog"></span>
 			<div class="nav-icon-text">Settings</div>
-			<a href="./settings.html" class="hidden-link"></a>
+			<a href="/settings" class="hidden-link"></a>
 
 		</div>
 		<div class="navigation-button link-button">
 			<span class="icon-question"></span>
 			<div class="nav-icon-text">Help</div>
-			<a href="./help.html" class="hidden-link"></a>
+			<a href="/help" class="hidden-link"></a>
 		</div>
 		<div class="navigation-button link-button">
 			<span class="icon-switch"></span>
@@ -66,20 +66,32 @@
 				<div class="course-expand-1">
 					<div class="ce1-text link-button">
 						PodCats it
+						{{#if current.isLive}}
 						<div class="ce1-sub ce1-sub-ex">
 							00:23:54
 						</div>
-						<a href="./podcatsit.html" class="hidden-link"></a>
+						<a href="/podcatsit?course={{@key}}" class="hidden-link"></a>
+						{{/if}}
+						{{#unless current.isLive}}
+						<div class="ce1-sub">
+							currently offline
+						</div>
+						{{/unless}}
 					</div>
 				</div>
 				<div class="course-expand-2">
 					<div class="ce2-text link-button">
 						View lectures
-						<a href="./class.html" class="hidden-link"></a>
+						<a href="/archive" class="hidden-link"></a>
 					</div>
 				</div>
 			</div>
+			{{#if current.isLive}}
 			<div class="course-tag course-tag-ex"></div>
+			{{/if}}
+			{{#unless current.isLive}}
+			<div class="course-tag"></div>
+			{{/unless}}
 		</div>
 	{{/each}}
 		<!--<div class="course">
