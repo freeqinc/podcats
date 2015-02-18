@@ -1,12 +1,141 @@
+::-webkit-input-placeholder { /* WebKit browsers */
+	color:    #F3F3F3;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	color:    #F3F3F3;
+	opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+	color:    #F3F3F3;
+	opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+	color:    #F3F3F3;
+}
+
+
 .page-wrap{
-	padding-top: 75px;
+	padding-top: 40px;
 	color: #F3F3F3;
 }
 
 .time{
-	font-size: 5em;
+	font-size: 6em;
 }
 
+.bookmark *{
+	display: inline-block;
+	margin: 0 10px;
+	font-size: 2em;
+}
+
+.control-buttons{
+	margin-top: 20px;
+}
+
+.control-buttons *{
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.control-button:hover{
+	background: rgba(255,255,255,0.1);
+}
+
+.control-button{
+	margin: 0 5px;
+	margin-bottom: 10px;
+}
+
+.interval-button{
+	vertical-align: top;
+	position: relative;
+	display: inline-block;
+	width: 220px;
+	height: 80px;
+	border: 2px solid #F3F3F3;
+	cursor: pointer;
+	border-radius: 20px;
+}
+
+.startstop-icon{
+	position: absolute;
+	width: 60px;
+	height: 60px;
+	top: 10px;
+	left: 10px;
+}
+
+.ssi{
+	font-size: 6em;
+	position: absolute;
+	left: -30%;
+	top: -20%;
+}
+
+.ssi-stop{
+	opacity: 0;
+	left: -20%;
+}
+
+.interval-text{
+	position: absolute;
+	right: 0;
+	font-size: 3em;
+	width: 80%;
+	height: 100%;
+	line-height: 80px;
+	text-align: center;
+}
+
+.it-1{
+}
+
+.it-2{
+	opacity: 0;
+}
+
+.quick-bookmark-button{
+	vertical-align: top;
+	position: relative;
+	display: inline-block;
+	width: 80px;
+	height: 80px;
+	border: 2px solid #F3F3F3;
+	cursor: pointer;
+	border-radius: 20px;
+}
+
+.qbm{
+	position: relative;
+	top: 11px;
+	font-size: 4em;
+}
+
+.interval-comment{
+	box-sizing: border-box;
+	display: inline-block;
+	width: 95%;
+	height: 84px;
+	border: 2px solid #F3F3F3;
+	border-radius: 20px;
+	font-size: 2em;
+	color: #F3F3F3;
+	padding-left: 20px;
+}
+
+
+#stack{
+	margin-top: 50px;
+}
+
+
+
+/*
 .podcats-button{
 	position: relative;
 	display: inline-block;
@@ -20,12 +149,7 @@
 	cursor: pointer;
 }
 
-.podcats-button:hover{
+.control-button:hover{
 	background: rgba(255,255,255,0.3);
 }
-
-.bookmark *{
-	display: inline-block;
-	margin: 0 10px;
-	font-size: 2em;
-}
+*/
