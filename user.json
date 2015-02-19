@@ -1,6 +1,7 @@
 {
 	"valid":
 	[
-		{"username" : "test@ucsd.edu", "password" : "password"}
+		{"username" : "test@ucsd.edu", "password" : "password"},
+		{"username" : "", "password" : ""}
 	]
 }
