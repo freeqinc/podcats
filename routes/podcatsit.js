@@ -4,9 +4,8 @@ var query = {};
 setInterval(function() {
     if(hasQuery()) {
     	var isLive = data["courses"][query["course"]]["current"]["isLive"];
-    	if(!isLive) {
+    	if(!isLive)
     		return;
-    	}
         data["courses"][query["course"]]["current"]["elapsed"]++;
     }
 }, 1000);
@@ -24,14 +23,6 @@ function convertTime(secondTotal) {
 }
 
 function loadLecture() {
-    if(!(hasQuery())) {
-        return {
-            "marks" : [],
-            "elapsed" : 0,
-            "isLive" : false,
-            "timeString" : "0:00:00"
-        };
-    }
     var course = data["courses"][query["course"]]["current"];
     var time = course["elapsed"];
     course["timeString"] = convertTime(time);
@@ -44,7 +35,10 @@ function hasQuery() {
 
 exports.liveLecture = function(req, res){
 	query = req.query;
-	res.render('podcatsit', loadLecture());
+    if(hasQuery())
+        res.render('podcatsit', loadLecture());
+    else
+	   res.redirect('/classes'); // TO BE CHANGED
 };
 
 exports.timer = function(req,res) {

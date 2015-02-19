@@ -53,21 +53,28 @@
 
 
 		<div id="stack">
-
+			{{#each marks}}
 			<div class="bookmark">
+				{{#if time}}
 				<div class="bookmark-start-time">
-					00:05:49
+					{{time}}
+				</div>
+				<span class="icon-bolt"></span>
+				{{else}}
+				<div class="bookmark-start-time">
+					{{start}}
 				</div>
 
 				<div class="bookmark-end-time">
-					00:08:21
+					{{end}}
 				</div>
 
 				<div class="bookmark-comment">
-					Needfinding strategies
+					{{comment}}
 				</div>
+				{{/if}}
 			</div>
-
+			{{/each}}
 		</div>
 
 	<!--<div class="podcats-button" id="pb-1">!</div>
