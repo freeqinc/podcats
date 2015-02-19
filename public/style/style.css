@@ -415,4 +415,29 @@ body {
 	margin-top: 50px;
 }
 
+.help-section{
+	width: 85%;
+	margin: 0 auto;
+}
+
+.help-title{
+	font-size: 2.5em;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+.help-point{
+	text-align: left;
+	width: 100%;
+	font-size: 1.7em;
+	margin: 20px 0;
+	font-weight: bold;
+}
+
+.help-sub-point{
+	font-size: .8em;
+	font-weight: normal;
+	color: #f3f3f3;
+}
+
 
