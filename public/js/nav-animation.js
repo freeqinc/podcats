@@ -49,4 +49,8 @@ $(window).load(function() {
 		window.history.back();
 	});
 
+	$('.refresh-button').click(function(){
+		location.reload();
+	});
+
 });

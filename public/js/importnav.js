@@ -3,6 +3,9 @@ function importnav(){
 	document.write("	<div class=\"back-button\">");
 	document.write("			<span class=\"icon-reply\"><\/span>");
 	document.write("		<\/div>");
+	document.write("		<div class=\"refresh-button\">");
+	document.write("			<span class=\"icon-cycle\"><\/span>");
+	document.write("		<\/div>");
 	document.write("		<div class=\"hamburger-button\">");
 	document.write("			<div class=\"burger-1 burger-line\"><\/div>");
 	document.write("			<div class=\"burger-2 burger-line\"><\/div>");
