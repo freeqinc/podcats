@@ -50,8 +50,7 @@ exports.bookmark = function(req,res) {
     var currCourse = query["course"];
     data["courses"][currCourse]["current"]["marks"].unshift(req.query);
     console.log(data["courses"][currCourse]["current"]["marks"]);
-    if(hasQuery())
-        res.redirect("/podcatsit?course="+query["course"]);
-    else
-        res.redirect("/podcatsit");
+    var route = "/podcatsit";
+    route += hasQuery() ? "?course="+query["course"] : "";
+    res.redirect(route);
 };
