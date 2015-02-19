@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'icomoon';
-	src:url('fonts/icomoon.eot?-82apyq');
-	src:url('fonts/icomoon.eot?#iefix-82apyq') format('embedded-opentype'),
-		url('fonts/icomoon.woff?-82apyq') format('woff'),
-		url('fonts/icomoon.ttf?-82apyq') format('truetype'),
-		url('fonts/icomoon.svg?-82apyq#icomoon') format('svg');
+	src:url('fonts/icomoon.eot?-im813m');
+	src:url('fonts/icomoon.eot?#iefix-im813m') format('embedded-opentype'),
+		url('fonts/icomoon.woff?-im813m') format('woff'),
+		url('fonts/icomoon.ttf?-im813m') format('truetype'),
+		url('fonts/icomoon.svg?-im813m#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -35,6 +35,10 @@
 	content: "\e602";
 }
 
+.icon-undo:before {
+	content: "\e60b";
+}
+
 .icon-cog:before {
 	content: "\e605";
 }
@@ -45,6 +49,10 @@
 
 .icon-close:before {
 	content: "\e600";
+}
+
+.icon-reply:before {
+	content: "\e610";
 }
 
 .icon-bolt:before {
@@ -63,7 +71,31 @@
 	content: "\e608";
 }
 
+.icon-pause:before {
+	content: "\e611";
+}
+
+.icon-record:before {
+	content: "\e612";
+}
+
 .icon-stop:before {
 	content: "\e609";
+}
+
+.icon-arrow-left2:before {
+	content: "\e60d";
+}
+
+.icon-arrow-left:before {
+	content: "\e60c";
+}
+
+.icon-arrow-left3:before {
+	content: "\e60e";
+}
+
+.icon-arrow-left4:before {
+	content: "\e60f";
 }
 

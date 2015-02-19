@@ -23,6 +23,7 @@ $(window).load(function() {
 	var animateTime = 250;
 	var animateTime2 = 250;
 	function expand(course){
+		//console.log("expanding");
 		if(course.height() == 150){
 
 
@@ -56,6 +57,7 @@ $(window).load(function() {
 	}
 
 	function contract(course){
+		//console.log("contracting");
 		if(course.height() == 350){
 
 			course.velocity('stop').velocity(
@@ -148,7 +150,8 @@ $(window).load(function() {
 		//expand($('.course-1'));
 
 		$('.course').click(function(){
-			if($(this).height() == 150){
+			//console.log($(this).innerHeight());
+			if($(this).height() < 151){
 				expand($(this));
 				$('.course').not(this).each(function(){
 					contract($(this));

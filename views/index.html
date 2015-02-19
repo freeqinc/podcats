@@ -20,7 +20,7 @@
 <body>
 	<div class="wrapper">
 		<div class="logo-text">
-			<span class="lt-bold">POD</span>CATS
+			POD<span class="lt-bold">CATS</span>
 		</div>
 		<div class="cat-player">
 			<img class="cat" alt="cat" src="./assets/white_cat.png">
@@ -44,18 +44,21 @@
 		</div>
 		<div class="button signup">SIGN UP</div>
 		<script type="text/javascript">
-			$(".login").click(function() {
-				var username = $(".ti-1").val();
-				var password = $(".ti-2").val();
-				$.post("/validate?username="+username+"&password="+password, function(result){
-					if(result["1"] && result["2"])
-						window.location.replace("/classes");
+		$(".login").click(function() {
+			var username = $(".ti-1").val();
+			var password = $(".ti-2").val();
+			$.post("/validate?username="+username+"&password="+password, function(result){
+				if(result["1"] && result["2"]){
+					$('.the-input').val("");
+					window.location.href = '/classes';
+						//window.location.replace("/classes");
+					}
 					else {
 						alert("INVALID CREDENTIALS!");
 						return;
 					}
 				});
-			});
+		});
 		</script>
 
 	</div>

@@ -23,6 +23,9 @@
 
 <body>
 	<div class="navigation">
+		<div class="back-button">
+			<span class="icon-reply"></span>
+		</div>
 		<div class="hamburger-button">
 			<div class="burger-1 burger-line"></div>
 			<div class="burger-2 burger-line"></div>
@@ -59,7 +62,7 @@
 
 
 	<div class="page-wrap">
-	{{#each courses}}
+		{{#each courses}}
 		<div class="course">
 			{{@key}}
 			<div class="course-expand">
@@ -93,7 +96,7 @@
 			<div class="course-tag"></div>
 			{{/unless}}
 		</div>
-	{{/each}}
+		{{/each}}
 		<!--<div class="course">
 			CHEM6A
 			<div class="course-expand">

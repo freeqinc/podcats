@@ -9,6 +9,7 @@ var index = require('./routes/index');
 var home = require('./routes/home');
 var lectures = require('./routes/class');
 var podcatsit = require('./routes/podcatsit');
+var professor = require('./routes/professor');
 var help = require('./routes/help');
 var settings = require('./routes/settings');
 
@@ -41,6 +42,7 @@ app.get('/', index.login)
 app.get('/classes', home.classList);
 app.get('/archive', lectures.archivedLectures);
 app.get('/podcatsit', podcatsit.liveLecture);
+app.get('/professor', professor.liveLecture)
 app.get('/help', help.helpPage);
 app.get('/settings', settings.settingsPage);
 
