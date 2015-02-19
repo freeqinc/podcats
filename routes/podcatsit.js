@@ -12,7 +12,7 @@ setInterval(function() {
 
 
 function convertTime(secondTotal) {
-    var seconds = secondTotal%60;
+    var seconds = parseInt(secondTotal)%60;
     var minutes = parseInt(secondTotal/60);
     var hours = parseInt(minutes/60);
     if(seconds < 10)
@@ -23,6 +23,8 @@ function convertTime(secondTotal) {
 }
 
 function loadLecture() {
+    if(!hasQuery())
+        return {};
     var course = data["courses"][query["course"]]["current"];
     var time = course["elapsed"];
     course["timeString"] = convertTime(time);

@@ -3,7 +3,6 @@ $(document).ready(function(){
     var startTime = "";
     var prevTime = "";
     var currID = "";
-    $(".interval-comment").prop('disabled', true);
 
     function updateTime(){
         var timeArray = $(".time").text().split(':');
@@ -69,58 +68,22 @@ $(document).ready(function(){
         isLive = data["status"];
     });
 
-    setInterval(function(){
+    /*setInterval(function(){
         if(isLive) {
             updateTime();
         }
-    }, 1000);
+    }, 1000);*/
 
     $(".interval-button").click(function(){
-        if(!isLive){
-            alert("This Lecture is not live!");
-            return;
-        }
-        var timePushed = $(".time").text();
-        if(startTime == "") {
-            currID = makeid();
-            startTime = timePushed;
-            var markHTML = '<div id="'+currID+'" class="bookmark">';
-            markHTML += '<div class="bookmark-start-time">'+startTime+'</div></div>';
-            $("#stack").prepend(markHTML);
-            $(".interval-comment").prop('disabled', false);
-        }
-        else {
-            var comment = $(".interval-comment").val();
-            if(startTime == timePushed || comment == "")
-                return;
-            $(".interval-comment").val("");
-            var url = "/bookmark?start="+startTime+"&end="+timePushed+"&comment="+comment;
-            var markHTML = '<div class="bookmark-end-time">'+timePushed+'</div>';
-            markHTML += '<div class="bookmark-comment">'+comment+'</div></div>';
-            $.post(url, function(){
-                $("#"+currID).append(markHTML);
-            });
-            startTime = "";
-            $(".interval-comment").prop('disabled', true);
-        }
+        //var time = $(".time").text();
+        var url = "/record?course="+query["course"]+"&status="+(!isLive)+"&pause=false";
+        $.post(url, function(data){
+            //isLive = !isLive;
+        });
     });
 
     $(".quick-bookmark-button").click(function(){
-        if(!isLive){
-            alert("This Lecture is not live!");
-            return;
-        }
-        var time = $(".time").text();
-        if(prevTime == time){
-            alert("Do not spam!");
-            return;
-        }
-        var url = "/bookmark?time="+time;
-        var markHTML = '<div class="bookmark"><div class="bookmark-start-time">'+time+'</div>';
-        markHTML += '<span class="icon-bolt"></span></div>';
-        prevTime = time;
-        $.post(url, function(){
-            $("#stack").prepend(markHTML);
-        });
+        var url = "/record?course="+query["course"]+"&status=false&pause=true";
+        $.post(url);
     });
 });

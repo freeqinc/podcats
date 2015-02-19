@@ -3,7 +3,7 @@ $(window).load(function() {
 	var ssi = true;
 	var ssiTime = 150;
 	var ssiType = "linear";
-	
+
 	$('.interval-button').click(function(){
 		if(ssi){
 			ssi = false;

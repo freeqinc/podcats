@@ -4,6 +4,7 @@ $(window).load(function() {
 	var ssiTime = 150;
 	var ssiType = "linear";
 	
+
 	$('.interval-button').click(function(){
 		if(ssi){
 			ssi = false;
