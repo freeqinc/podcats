@@ -2,6 +2,7 @@ $(document).ready(function(){
     var isLive = false;
     var startTime = "";
     var prevTime = "";
+    var currID = "";
     $(".interval-comment").prop('disabled', true);
 
     function updateTime(){
@@ -48,6 +49,17 @@ $(document).ready(function(){
         return total;
     }
 
+    function makeid()
+    {
+        var text = "";
+        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+        for( var i=0; i < 5; i++ )
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+        return text;
+    }
+
     var query = getUrlVars();
 
     $.getJSON("/timer", function(data){
@@ -57,7 +69,11 @@ $(document).ready(function(){
     $(".interval-button").click(function(){
         var timePushed = $(".time").text();
         if(startTime == "") {
+            currID = makeid();
             startTime = timePushed;
+            var markHTML = '<div id="'+currID+'" class="bookmark">';
+            markHTML += '<div class="bookmark-start-time">'+startTime+'</div></div>';
+            $("#stack").prepend(markHTML);
             $(".interval-comment").prop('disabled', false);
         }
         else {
@@ -66,11 +82,10 @@ $(document).ready(function(){
                 return;
             $(".interval-comment").val("");
             var url = "/bookmark?start="+startTime+"&end="+timePushed+"&comment="+comment;
-            var markHTML = '<div class="bookmark"><div class="bookmark-start-time">'+startTime+'</div>';
-            markHTML += '<div class="bookmark-end-time">'+timePushed+'</div>';
+            var markHTML = '<div class="bookmark-end-time">'+timePushed+'</div>';
             markHTML += '<div class="bookmark-comment">'+comment+'</div></div>';
             $.post(url, function(){
-                $("#stack").prepend(markHTML);
+                $("#"+currID).append(markHTML);
             });
             startTime = "";
             $(".interval-comment").prop('disabled', true);
