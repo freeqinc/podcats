@@ -1,9 +1,29 @@
 $(window).load(function() {
 
+
+
+	function placeCaretAtEnd(el) {
+		el.focus();
+		if (typeof window.getSelection != "undefined" && typeof document.createRange != "undefined") {
+			var range = document.createRange();
+			range.selectNodeContents(el);
+			range.collapse(false);
+			var sel = window.getSelection();
+			sel.removeAllRanges();
+			sel.addRange(range);
+		} 
+		else if (typeof document.body.createTextRange != "undefined") {
+			var textRange = document.body.createTextRange();
+			textRange.moveToElementText(el);
+			textRange.collapse(false);
+			textRange.select();
+		}
+	}
+
 	var ssi = true;
 	var ssiTime = 150;
 	var ssiType = "linear";
-	
+
 
 	$('.interval-button').click(function(){
 		if(ssi){
@@ -58,6 +78,24 @@ $(window).load(function() {
 			duration: ssiTime/2,
 			easing: ssiType
 		});
+	});
+
+
+	$('.bookmark-edit').click(function(){
+		var comment = $(this).siblings('.bookmark-comment');
+		comment.attr('contenteditable','true');
+		comment.focus();
+		placeCaretAtEnd(comment.get(0));
+		$(this).fadeOut(1);
+		$(this).parent().find('.bookmark-check').fadeIn(1);
+		rename.attr('contenteditable','true');
+	});
+
+	$('.bookmark-check').click(function(){
+		var comment = $(this).siblings('.bookmark-comment');
+		comment.attr('contenteditable','false');
+		$(this).fadeOut(1);
+		$(this).parent().find('.bookmark-edit').fadeIn(1);
 	});
 
 });

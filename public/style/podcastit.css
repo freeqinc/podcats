@@ -163,6 +163,12 @@
 	right: 50px;
 }
 
+.bookmark-check{
+	right: 50px;
+	font-size: 1.1em;
+	display: none;
+}
+
 .bookmark-comment{
 	position: relative;
 	text-align: left;
