@@ -47,7 +47,8 @@ app.get('/help', help.helpPage);
 app.get('/settings', settings.settingsPage);
 
 app.get("/timer", podcatsit.timer);
-app.post("/bookmark", podcatsit.bookmark);
+app.post("/add_mark", podcatsit.addMark);
+app.post("/del_mark", podcatsit.delMark);
 app.post("/validate", index.validate);
 
 app.get("/checkLive", professor.checkLive);

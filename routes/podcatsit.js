@@ -37,8 +37,15 @@ function hasQuery() {
 
 exports.liveLecture = function(req, res){
 	query = req.query;
+    if(!hasQuery()) {
+        res.redirect('/classes');
+        return;
+    }
     var current = loadLecture();
-    if(hasQuery() && current["isLive"])
+    current["marks"] = current["marks"].filter(function(n){
+        return n !== undefined;
+    });
+    if(current["isLive"])
         res.render('podcatsit', current);
     else
 	   res.redirect('/classes'); // TO BE CHANGED
@@ -49,11 +56,25 @@ exports.timer = function(req,res) {
     res.json(timeJSON);
 };
 
-exports.bookmark = function(req,res) {
+exports.addMark = function(req,res) {
+    if(!hasQuery()) {
+        res.redirect("/podcatsit");
+        return;
+    }
     var currCourse = query["course"];
     data["courses"][currCourse]["current"]["marks"].unshift(req.query);
     console.log(data["courses"][currCourse]["current"]["marks"]);
-    var route = "/podcatsit";
-    route += hasQuery() ? "?course="+query["course"] : "";
-    res.redirect(route);
+    res.redirect("/podcatsit?course="+query["course"]);
+};
+
+exports.delMark = function(req,res) {
+    if(!hasQuery()) {
+        res.redirect("/podcatsit");
+        return;
+    }
+    var currCourse = query["course"];
+    var index = parseInt(req.query["index"].substring(4));
+    delete data["courses"][currCourse]["current"]["marks"][index];
+    console.log(data["courses"][currCourse]["current"]["marks"][index]);
+    res.redirect("/podcatsit?course="+query["course"]);
 };

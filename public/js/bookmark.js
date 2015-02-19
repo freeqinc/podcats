@@ -1,6 +1,6 @@
 $(document).ready(function(){
     var isLive = false;
-    var startTime = "";
+    var sTime = "";
     var prevTime = "";
     var currID = "";
     $(".interval-comment").prop('disabled', true);
@@ -58,7 +58,7 @@ $(document).ready(function(){
         return text;
     }
 
-    function tag(attr, class_name, id_name, content) {
+    /*function tag(attr, class_name, id_name, content) {
         var tag = '<'+attr;
         if(class_name) {
             tag += ' class="'+class_name+'"'
@@ -68,7 +68,7 @@ $(document).ready(function(){
         }
         tag += '>'+content+'</div>'
         return tag;
-    }
+    }*/
 
     var query = getUrlVars();
 
@@ -87,54 +87,56 @@ $(document).ready(function(){
     }, 1000);
 
     $(".interval-button").click(function(){
-        if(!isLive){
-            alert("This Lecture is not live!");
-            return;
-        }
-        var timePushed = $(".time").text();
-        if(startTime == "") {
+        var pushedAt = $(".time").text();
+        if(sTime == "") {
             //currID = makeid();
-            startTime = timePushed;
+            sTime = pushedAt;
             /*var markHTML = tag("div","bookmark", currID, 
-                tag("div", "bookmark-start-time", '', startTime))
+                tag("div", "bookmark-start-time", '', sTime))
                 + tag("div", "bookmark-divider",'','');*/
             //$("#stack").prepend(markHTML);
             $(".interval-comment").prop('disabled', false);
         }
         else {
             var comment = $(".interval-comment").val();
-            if(startTime == timePushed)
+            if(sTime == pushedAt)
                 return;
             if(!comment)
                 comment = "No Comment";
             $(".interval-comment").val("");
-            var url = "/bookmark?start="+startTime+"&end="+timePushed+"&comment="+comment;
+            var url = "/add_mark?start="+sTime+"&end="+pushedAt+"&comment="+comment;
             /*var markHTML = tag('div', "bookmark-delete bookmark-icon", '', tag("span","icon-trash",'',''))
                 + tag('div', "bookmark-edit bookmark-icon", '', tag("span","icon-pencil",'',''))
-                + tag("div","bookmark-end-time",'',timePushed) + "<br/><br/>"
+                + tag("div","bookmark-end-time",'',pushedAt) + "<br/><br/>"
                 + tag("div","bookmark-comment",'',comment);*/
             $.post(url);
-            startTime = "";
+            sTime = "";
             $(".interval-comment").prop('disabled', true);
             setTimeout(function(){location.reload();},125);
         }
     });
 
-$(".quick-bookmark-button").click(function(){
-    if(!isLive){
-        alert("This Lecture is not live!");
-        return;
-    }
-    var time = $(".time").text();
-    if(prevTime == time){
-        alert("Do not spam!");
-        return;
-    }
-    var url = "/bookmark?time="+time;
-    //var markHTML = '<div class="bookmark"><div class="bookmark-start-time">'+time+'</div>';
-    //markHTML += '<span class="icon-bolt"></span></div>';
-    prevTime = time;
-    $.post(url);
-    setTimeout(function(){location.reload();},125);
-});
+    $(".quick-bookmark-button").click(function(){
+        var time = $(".time").text();
+        if(prevTime == time){
+            alert("Do not spam!");
+            return;
+        }
+        var url = "/add_mark?time="+time;
+        //var markHTML = '<div class="bookmark"><div class="bookmark-start-time">'+time+'</div>';
+        //markHTML += '<span class="icon-bolt"></span></div>';
+        prevTime = time;
+        $.post(url);
+        setTimeout(function(){location.reload();},125);
+    });
+
+    $(".bookmark-delete").click(function(){
+        var answer = confirm("Your mark will be deleted permanently. Is this still OK?");
+        if(answer == false) {
+            return;
+        }
+        var index = $(this).attr("id");
+        $.post("/del_mark?index="+index);
+        location.reload();
+    });
 });

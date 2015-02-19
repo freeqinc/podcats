@@ -54,12 +54,12 @@
 
 		<div id="stack">
 			{{#each marks}}
-			<div class="bookmark">
+			<div id="{{@index}}" class="bookmark">
 				{{#if time}}
 				<div class="bookmark-start-time">
 					{{time}}
 				</div>
-				<div class="bookmark-delete bookmark-icon">
+				<div id="del-{{@index}}" class="bookmark-delete bookmark-icon">
 					<span class="icon-trash"></span>
 				</div>
 				<br/>
@@ -69,10 +69,10 @@
 					{{start}}
 				</div>
 
-				<div class="bookmark-delete bookmark-icon">
+				<div id="del-{{@index}}" class="bookmark-delete bookmark-icon">
 					<span class="icon-trash"></span>
 				</div>
-				<div class="bookmark-edit bookmark-icon">
+				<div id="edit-{{@index}}" class="bookmark-edit bookmark-icon">
 					<span class="icon-pencil"></span>
 				</div>
 
