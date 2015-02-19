@@ -3,7 +3,6 @@ $(window).load(function() {
 
 
 	function placeCaretAtEnd(el) {
-		el.focus();
 		if (typeof window.getSelection != "undefined" && typeof document.createRange != "undefined") {
 			var range = document.createRange();
 			range.selectNodeContents(el);
