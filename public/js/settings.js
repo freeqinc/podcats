@@ -7,6 +7,28 @@ $(window).load(function() {
 	
 
 
+	/* intialize page */
+
+	$('.setting-group').each(function(){
+		var toggle = $(this).find('.toggle-text');
+		if(toggle.html() =="true"){
+			$(this).find('.setting-yes').velocity({
+				backgroundColorAlpha: 0.3
+			},{
+				duration: ssiTime2,
+				easing: ssiType
+			});
+		}
+		else{
+			$(this).find('.setting-no').velocity({
+				backgroundColorAlpha: 0.3
+			},{
+				duration: ssiTime2,
+				easing: ssiType
+			});
+		}
+	});
+
 
 	$('.setting-yes').click(function(){
 		$(this).velocity({
@@ -21,6 +43,7 @@ $(window).load(function() {
 			duration: ssiTime2,
 			easing: ssiType
 		});
+		$(this).sibling('.toggle-text').html("true");
 	});
 
 	$('.setting-no').click(function(){
@@ -36,6 +59,7 @@ $(window).load(function() {
 			duration: ssiTime2,
 			easing: ssiType
 		});
+		$(this).sibling('.toggle-text').html("false");
 	});
 
 
