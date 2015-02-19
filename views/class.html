@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name=viewport content="width=device-width, initial-scale=.6">
 	<link rel="stylesheet" type="text/css" href="./style/style.css">
-	<link rel="stylesheet" type="text/css" href="./style/homestyle.css">
+	<link rel="stylesheet" type="text/css" href="./style/lecturesstyle.css">
 	<link rel="stylesheet" type="text/css" href="./icomoon/style.css">
 	<link rel="icon" href="./assets/icon.ico" type="image/x-icon" />
 	<link rel="shortcut icon" href="./assets/icon.ico" type="image/x-icon" />
@@ -19,6 +19,7 @@
 	<script src="./js/common-animation.js"></script>
 	<script src="./js/course-fold.js"></script>
 	<script src="./js/importnav.js"></script>
+	<script src="./js/rename.js"></script>
 	<title>PodCats | Class</title>
 </head>
 
@@ -27,13 +28,22 @@
 	importnav();
 	</script>
 	<div class="page-wrap">
-	{{#each lectures}}
+		{{#each lectures}}
 		<div class="course course-1">
-			{{date}} 
+			<div class="lecture-name">
+				<div class="lecture-name">
+					Lecture1
+				</div>
+			</div>
+			<div class="lecture-date">
+				{{date}} 
+			</div>
 			<div class="course-expand">
 				<div class="course-expand-1">
 					<div class="ce1-text">
-						Rename
+						<div class="rename-text editable">
+							Rename
+						</div>
 					</div>
 				</div>
 				<div class="course-expand-2">
@@ -43,7 +53,7 @@
 				</div>
 			</div>
 		</div>
-	{{/each}}
+		{{/each}}
 	</div>
 	
 
