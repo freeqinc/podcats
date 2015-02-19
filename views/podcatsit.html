@@ -59,7 +59,7 @@
 				<div class="bookmark-start-time">
 					{{time}}
 				</div>
-				<div id="del-{{@index}}" class="bookmark-delete bookmark-icon">
+				<div id="d{{@index}}" class="bookmark-delete bookmark-icon">
 					<span class="icon-trash"></span>
 				</div>
 				<br/>
@@ -69,13 +69,13 @@
 					{{start}}
 				</div>
 
-				<div id="del-{{@index}}" class="bookmark-delete bookmark-icon">
+				<div id="d{{@index}}" class="bookmark-delete bookmark-icon">
 					<span class="icon-trash"></span>
 				</div>
-				<div id="edit-{{@index}}" class="bookmark-edit bookmark-icon">
+				<div class="bookmark-edit bookmark-icon">
 					<span class="icon-pencil"></span>
 				</div>
-				<div class="bookmark-check bookmark-icon">
+				<div id="e{{@index}}" class="bookmark-check bookmark-icon">
 					<span class="icon-checkmark"></span>
 				</div>
 
@@ -83,7 +83,7 @@
 					{{end}}
 				</div>
 				<br/><br/>
-				<div class="bookmark-comment editable">{{comment}}</div>
+				<div id="c{{@index}}" class="bookmark-comment editable">{{comment}}</div>
 				{{/if}}
 			</div>
 			<div class="bookmark-divider"></div>

@@ -68,22 +68,27 @@ $(document).ready(function(){
         isLive = data["status"];
     });
 
-    /*setInterval(function(){
+    setInterval(function(){
         if(isLive) {
             updateTime();
         }
-    }, 1000);*/
+    }, 1000);
 
     $(".interval-button").click(function(){
         //var time = $(".time").text();
         var url = "/record?course="+query["course"]+"&status="+(!isLive)+"&pause=false";
         $.post(url, function(data){
-            //isLive = !isLive;
+            isLive = !isLive;
+            if(!isLive){
+                $(".time").text("0:00:00");
+            }
         });
     });
 
     $(".quick-bookmark-button").click(function(){
         var url = "/record?course="+query["course"]+"&status=false&pause=true";
-        $.post(url);
+        $.post(url, function(data){
+            isLive = !isLive;
+        });
     });
 });

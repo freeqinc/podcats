@@ -1,14 +1,14 @@
 var data = require('../courses.json');
 var query = {};
 
-setInterval(function() {
+/*setInterval(function() {
     if(hasQuery()) {
     	var isLive = data["courses"][query["course"]]["current"]["isLive"];
     	if(!isLive)
     		return;
         data["courses"][query["course"]]["current"]["elapsed"]++;
     }
-}, 1000);
+}, 1000);*/
 
 
 function convertTime(secondTotal) {
@@ -67,14 +67,20 @@ exports.addMark = function(req,res) {
     res.redirect("/podcatsit?course="+query["course"]);
 };
 
-exports.delMark = function(req,res) {
+exports.modMark = function(req,res) {
     if(!hasQuery()) {
         res.redirect("/podcatsit");
         return;
     }
     var currCourse = query["course"];
-    var index = parseInt(req.query["index"].substring(4));
-    delete data["courses"][currCourse]["current"]["marks"][index];
+    var index = parseInt(req.query["index"].substring(1));
+    var reference = data["courses"][currCourse]["current"]["marks"];
+    if(req.query["action"] == "delete"){
+        delete reference[index];
+    }
+    else if(req.query["action"] == "edit"){
+        reference[index]["comment"] = req.query["comment"]; 
+    }
     console.log(data["courses"][currCourse]["current"]["marks"][index]);
     res.redirect("/podcatsit?course="+query["course"]);
 };

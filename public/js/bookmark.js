@@ -136,7 +136,14 @@ $(document).ready(function(){
             return;
         }
         var index = $(this).attr("id");
-        $.post("/del_mark?index="+index);
+        $.post("/mod_mark?action=delete&index="+index);
+        location.reload();
+    });
+
+    $(".bookmark-check").click(function(){
+        var index = $(this).attr("id");
+        var newComment = $("#c"+index.substring(1)).text();
+        $.post("/mod_mark?action=edit&index="+index+"&comment="+newComment);
         location.reload();
     });
 });
