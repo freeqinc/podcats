@@ -12,6 +12,7 @@ var podcatsit = require('./routes/podcatsit');
 var professor = require('./routes/professor');
 var help = require('./routes/help');
 var settings = require('./routes/settings');
+var watch = require('./routes/watch');
 
 // Create the server instance
 var app = express();
@@ -45,6 +46,7 @@ app.get('/podcatsit', podcatsit.liveLecture);
 app.get('/professor', professor.liveLecture)
 app.get('/help', help.helpPage);
 app.get('/settings', settings.settingsPage);
+app.get('/watch', watch.watchPage);
 
 app.get("/timer", podcatsit.timer);
 app.post("/add_mark", podcatsit.addMark);
