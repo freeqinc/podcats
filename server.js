@@ -4,6 +4,7 @@ var logger = require('morgan'); // Updated express.logger to Express 4 middlewar
 var compression = require('compression'); // Updated express.compress to Express 4 middleware
 var path = require('path');
 var hbs = require('hbs');
+//var handlebars = require('express-handlebars');
 
 var index = require('./routes/index');
 var home = require('./routes/home');
@@ -20,6 +21,9 @@ var app = express();
 // view engine setup
 app.set('view engine', 'html');
 app.engine('html', require('hbs').__express);
+
+//app.set('view engine', 'handlebars');
+//app.engine('handlebars', handlebars());
 
 // Print logs to the console and compress pages we send
 app.use(logger('dev'));

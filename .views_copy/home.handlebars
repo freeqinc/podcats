@@ -1,0 +1,213 @@
+<!doctype html>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name=viewport content="width=device-width, initial-scale=.6">
+	<link rel="stylesheet" type="text/css" href="./style/style.css">
+	<link rel="stylesheet" type="text/css" href="./style/homestyle.css">
+	<link rel="stylesheet" type="text/css" href="./icomoon/style.css">
+	<link rel="icon" href="./assets/icon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="./assets/icon.ico" type="image/x-icon" />
+	<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script
+	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+	<script src="./js/jquery.ba-dotimeout.min.js"></script>
+	<script src="./js/velocity.min.js"></script>
+	<script src="./js/nav-animation.js"></script>
+	<script src="./js/common-animation.js"></script>
+	<script src="./js/course-fold.js"></script>
+	<title>PodCats | Home</title>
+</head>
+
+<body>
+	<div class="navigation">
+		<div class="back-button">
+			<span class="icon-reply"></span>
+		</div>
+		<div class="refresh-button">
+			<span class="icon-cycle"></span>
+		</div>
+		<div class="hamburger-button">
+			<div class="burger-1 burger-line"></div>
+			<div class="burger-2 burger-line"></div>
+			<div class="burger-3 burger-line"></div>
+		</div>
+		<div class="nav-logo link-button">
+			POD<span class="logo-bold">CATS</span> 
+			<a href="/classes" class="hidden-link"></a>
+		</div>
+	</div>
+	<div class="navigation-expand">
+		<div class="navigation-button link-button">
+			<span class="icon-home"></span>
+			<div class="nav-icon-text">Home</div>
+			<a href="/classes" class="hidden-link"></a>
+		</div>
+		<div class="navigation-button link-button">
+			<span class="icon-cog"></span>
+			<div class="nav-icon-text">Settings</div>
+			<a href="/settings" class="hidden-link"></a>
+
+		</div>
+		<div class="navigation-button link-button">
+			<span class="icon-question"></span>
+			<div class="nav-icon-text">Help</div>
+			<a href="/help" class="hidden-link"></a>
+		</div>
+		<div class="navigation-button link-button">
+			<span class="icon-switch"></span>
+			<div class="nav-icon-text">Logout</div>
+			<a href="/" class="hidden-link"></a>
+		</div>
+	</div>
+
+
+	<div class="page-wrap">
+		{{#each courses}}
+		<div class="course">
+			{{@key}}
+			<div class="course-expand">
+				<div class="course-expand-1">
+					<div class="ce1-text link-button">
+						PodCats it
+						{{#if current.isLive}}
+						<div class="ce1-sub ce1-sub-ex">
+							{{current.timeString}}
+						</div>
+						<a href="/podcatsit?course={{@key}}" class="hidden-link"></a>
+						{{/if}}
+						{{#unless current.isLive}}
+						<div class="ce1-sub">
+							currently offline
+						</div>
+						{{/unless}}
+					</div>
+				</div>
+				<div class="course-expand-2">
+					<div class="ce2-text link-button">
+						View lectures
+						<a href="/archive?course={{@key}}" class="hidden-link"></a>
+					</div>
+				</div>
+			</div>
+			{{#if current.isLive}}
+			<div class="course-tag course-tag-ex"></div>
+			{{/if}}
+			{{#unless current.isLive}}
+			<div class="course-tag"></div>
+			{{/unless}}
+		</div>
+		{{/each}}
+		<!--<div class="course">
+			CHEM6A
+			<div class="course-expand">
+				<div class="course-expand-1">
+					<div class="ce1-text link-button">
+						PodCats it
+						<div class="ce1-sub ce1-sub-ex">
+							00:23:54
+						</div>
+						<a href="./podcatsit.html" class="hidden-link"></a>
+					</div>
+				</div>
+				<div class="course-expand-2">
+					<div class="ce2-text link-button">
+						View lectures
+						<a href="./class.html" class="hidden-link"></a>
+					</div>
+				</div>
+			</div>
+			<div class="course-tag course-tag-ex"></div>
+		</div>
+		<div class="course">
+			CSE124
+			<div class="course-expand">
+				<div class="course-expand-1">
+					<div class="ce1-text link-button">
+						PodCats it
+						<div class="ce1-sub">
+							currently offline
+						</div>
+						<a href="./podcatsit.html" class="hidden-link"></a>
+					</div>
+				</div>
+				<div class="course-expand-2">
+					<div class="ce2-text link-button">
+						View lectures
+						<a href="./class.html" class="hidden-link"></a>
+					</div>
+				</div>
+			</div>
+			<div class="course-tag"></div>
+		</div>
+		<div class="course">
+			CSE141
+			<div class="course-expand">
+				<div class="course-expand-1">
+					<div class="ce1-text link-button">
+						PodCats it
+						<div class="ce1-sub">
+							currently offline
+						</div>
+						<a href="./podcatsit.html" class="hidden-link"></a>
+					</div>
+				</div>
+				<div class="course-expand-2">
+					<div class="ce2-text link-button">
+						View lectures
+						<a href="./class.html" class="hidden-link"></a>
+					</div>
+				</div>
+			</div>
+			<div class="course-tag"></div>
+		</div>
+		<div class="course">
+			CSE141L
+			<div class="course-expand">
+				<div class="course-expand-1">
+					<div class="ce1-text link-button">
+						PodCats it
+						<div class="ce1-sub">
+							currently offline
+						</div>
+						<a href="./podcatsit.html" class="hidden-link"></a>
+					</div>
+				</div>
+				<div class="course-expand-2">
+					<div class="ce2-text link-button">
+						View lectures
+						<a href="./class.html" class="hidden-link"></a>
+					</div>
+				</div>
+			</div>
+			<div class="course-tag"></div>
+		</div>
+		<div class="course">
+			CSE170
+			<div class="course-expand">
+				<div class="course-expand-1">
+					<div class="ce1-text link-button">
+						PodCats it
+						<div class="ce1-sub">
+							currently offline
+						</div>
+						<a href="./podcatsit.html" class="hidden-link"></a>
+					</div>
+				</div>
+				<div class="course-expand-2">
+					<div class="ce2-text link-button">
+						View lectures
+						<a href="./class.html" class="hidden-link"></a>
+					</div>
+				</div>
+			</div>
+			<div class="course-tag"></div>
+		</div>-->
+
+	</div>
+
+</body>
+</html>
+

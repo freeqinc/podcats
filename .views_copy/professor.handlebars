@@ -1,0 +1,60 @@
+<!doctype html>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name=viewport content="width=device-width, initial-scale=.6">
+	<link rel="stylesheet" type="text/css" href="./style/style.css">
+	<link rel="stylesheet" type="text/css" href="./style/professor.css">
+	<link rel="stylesheet" type="text/css" href="./icomoon/style.css">
+	<link rel="icon" href="./assets/icon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="./assets/icon.ico" type="image/x-icon" />
+	<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script
+	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+	<script src="./js/jquery.ba-dotimeout.min.js"></script>
+	<script src="./js/velocity.min.js"></script>
+	<script src="./js/nav-animation.js"></script>
+	<script src="./js/common-animation.js"></script>
+	<script src="./js/course-fold.js"></script>
+	<script src="./js/importnav.js"></script>
+	<script src="./js/professor.js"></script>
+	<title>PodCats | Professor Control Panel</title>
+</head>
+
+<body>
+	<script type="text/javascript">
+	importnav();
+	</script>
+	<div class="page-wrap">
+		<div class="time">{{timeString}}</div>
+
+
+		<div class="control-buttons">
+
+
+			<div class="interval-button control-button">
+				<div class="startstop-icon">
+					<span class="icon-record ssi ssi-play"></span>
+					<span class="icon-stop ssi ssi-stop"></span>
+				</div>
+				<div class="interval-text it-1">Record</div>
+				<div class="interval-text it-2">Stop</div>
+			</div>
+
+			<div class="quick-bookmark-button control-button">
+				<span class="icon-pause qbm"></span>
+			</div>
+
+
+
+		</div>
+
+		<script type="text/javascript" src="./js/bookmark-prof.js"></script>
+	</div>
+
+
+</body>
+</html>
+
