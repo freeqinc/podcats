@@ -35,6 +35,7 @@ $(window).load(function() {
 				easing: ssiType
 			});
 			$(".interval-comment").attr("placeholder", "Comment here!").val("").focus().blur();
+			$('.interval-comment').focus();
 		}
 		else {
 			ssi = true;
