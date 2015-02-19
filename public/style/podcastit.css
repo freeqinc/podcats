@@ -50,7 +50,7 @@
 	vertical-align: top;
 	position: relative;
 	display: inline-block;
-	width: 220px;
+	width: 335px;
 	height: 80px;
 	border: 2px solid #F3F3F3;
 	cursor: pointer;
@@ -70,6 +70,12 @@
 	position: absolute;
 	left: -30%;
 	top: -20%;
+}
+
+.ssi-play{
+	font-size: 4em;
+	top: 5%;
+	left: 0%;
 }
 
 .ssi-stop{
@@ -121,6 +127,7 @@
 	font-size: 2em;
 	color: #F3F3F3;
 	padding-left: 20px;
+	background: rgba(255,255,255,0);
 }
 
 

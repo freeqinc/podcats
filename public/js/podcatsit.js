@@ -54,12 +54,14 @@ $(window).load(function() {
 				easing: ssiType
 			});
 			$(".interval-comment").attr("placeholder", "Comment here!").val("").focus().blur();
+			$('.interval-comment').velocity({'backgroundColorAlpha':0.2},1);
 			$('.interval-comment').focus();
 		}
 		else {
 			ssi = true;
-			$('.ssi, .interval-text').velocity('reverse',ssiTime);
-			$(".interval-comment").attr("placeholder", "Press start to comment here").val("").focus().blur();
+			$('.ssi').velocity('reverse',ssiTime);
+			$('.interval-comment').velocity({'backgroundColorAlpha':0},1);
+			$(".interval-comment").attr("placeholder", "Press record to comment here").val("").focus().blur();
 
 		}
 	});
