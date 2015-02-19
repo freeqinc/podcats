@@ -37,8 +37,9 @@ function hasQuery() {
 
 exports.liveLecture = function(req, res){
 	query = req.query;
-    if(hasQuery())
-        res.render('podcatsit', loadLecture());
+    var current = loadLecture();
+    if(hasQuery() && current["isLive"])
+        res.render('podcatsit', current);
     else
 	   res.redirect('/classes'); // TO BE CHANGED
 };

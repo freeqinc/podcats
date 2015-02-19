@@ -48,15 +48,26 @@ $(document).ready(function(){
         return total;
     }
 
-    function makeid()
-    {
+    function makeid() {
         var text = "";
-        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        var possible = "abcdefghijklmnopqrstuvwxyz0123456789";
 
-        for( var i=0; i < 5; i++ )
+        for( var i=0; i < 10; i++ )
             text += possible.charAt(Math.floor(Math.random() * possible.length));
 
         return text;
+    }
+
+    function tag(attr, class_name, id_name, content) {
+        var tag = '<'+attr;
+        if(class_name) {
+            tag += ' class="'+class_name+'"'
+        }
+        if(id_name) {
+            tag += ' id="'+id_name+'"'
+        }
+        tag += '>'+content+'</div>'
+        return tag;
     }
 
     var query = getUrlVars();
@@ -82,27 +93,30 @@ $(document).ready(function(){
         }
         var timePushed = $(".time").text();
         if(startTime == "") {
-            currID = makeid();
+            //currID = makeid();
             startTime = timePushed;
-            var markHTML = '<div id="'+currID+'" class="bookmark">';
-            markHTML += '<div class="bookmark-start-time">'+startTime+'</div></div>';
-
-            $("#stack").prepend(markHTML);
+            /*var markHTML = tag("div","bookmark", currID, 
+                tag("div", "bookmark-start-time", '', startTime))
+                + tag("div", "bookmark-divider",'','');*/
+            //$("#stack").prepend(markHTML);
             $(".interval-comment").prop('disabled', false);
         }
         else {
             var comment = $(".interval-comment").val();
             if(startTime == timePushed)
                 return;
+            if(!comment)
+                comment = "No Comment";
             $(".interval-comment").val("");
             var url = "/bookmark?start="+startTime+"&end="+timePushed+"&comment="+comment;
-            var markHTML = '<div class="bookmark-end-time">'+timePushed+'</div>';
-            markHTML += '<div class="bookmark-comment">'+comment+'</div></div>';
-            $.post(url, function(){
-                $("#"+currID).append(markHTML);
-            });
+            /*var markHTML = tag('div', "bookmark-delete bookmark-icon", '', tag("span","icon-trash",'',''))
+                + tag('div', "bookmark-edit bookmark-icon", '', tag("span","icon-pencil",'',''))
+                + tag("div","bookmark-end-time",'',timePushed) + "<br/><br/>"
+                + tag("div","bookmark-comment",'',comment);*/
+            $.post(url);
             startTime = "";
             $(".interval-comment").prop('disabled', true);
+            setTimeout(function(){location.reload();},125);
         }
     });
 
@@ -117,11 +131,10 @@ $(".quick-bookmark-button").click(function(){
         return;
     }
     var url = "/bookmark?time="+time;
-    var markHTML = '<div class="bookmark"><div class="bookmark-start-time">'+time+'</div>';
-    markHTML += '<span class="icon-bolt"></span></div>';
+    //var markHTML = '<div class="bookmark"><div class="bookmark-start-time">'+time+'</div>';
+    //markHTML += '<span class="icon-bolt"></span></div>';
     prevTime = time;
-    $.post(url, function(){
-        $("#stack").prepend(markHTML);
-    });
+    $.post(url);
+    setTimeout(function(){location.reload();},125);
 });
 });
