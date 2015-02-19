@@ -6,6 +6,6 @@
 		{"username" : "bsoe@ucsd.edu", "password":"", "title":"student"},
 		{"username" : "jeqin@ucsd.edu", "password":"", "title":"student"},
 		{"username" : "cvd001@ucsd.edu", "password":"", "title":"student"},
-		{"username" : "prof@ucsd.edu", "password":"", "title":"professor"},
+		{"username" : "prof@ucsd.edu", "password":"", "title":"professor"}
 	]
 }
