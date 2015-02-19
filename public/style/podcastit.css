@@ -1,16 +1,16 @@
 ::-webkit-input-placeholder { /* WebKit browsers */
-	color:    #F3F3F3;
+	color:    #F3C4CB;
 }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-	color:    #F3F3F3;
+	color:    #F3C4CB;
 	opacity:  1;
 }
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
-	color:    #F3F3F3;
+	color:    #F3C4CB;
 	opacity:  1;
 }
 :-ms-input-placeholder { /* Internet Explorer 10+ */
-	color:    #F3F3F3;
+	color:    #F3C4CB;
 }
 
 
@@ -23,11 +23,6 @@
 	font-size: 6em;
 }
 
-.bookmark *{
-	display: inline-block;
-	margin: 0 10px;
-	font-size: 2em;
-}
 
 .control-buttons{
 	margin-top: 20px;
@@ -131,6 +126,55 @@
 
 #stack{
 	margin-top: 50px;
+}
+
+.bookmark *{
+	display: inline-block;
+	font-size: 2em;
+}
+
+.bookmark{
+	width: 85%;
+	margin: 0 auto;
+	position: relative;
+}
+
+.bookmark-start-time{
+	position: absolute;
+	left: 0;
+}
+
+.bookmark-end-time{
+	position: absolute;
+	left: 140px;
+}
+
+.bookmark-icon{
+	position: absolute;
+	font-size: 1em;
+	cursor: pointer;
+}
+
+.bookmark-delete{
+	right: 0;
+}
+
+.bookmark-edit{
+	right: 50px;
+}
+
+.bookmark-comment{
+	position: relative;
+	text-align: left;
+}
+
+.bookmark-divider{
+	margin: 0 auto;
+	margin-top: 15px;
+	margin-bottom: 50px;
+	width: 90%;
+	height: 1px;
+	background: #F3B8A8;
 }
 
 

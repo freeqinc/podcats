@@ -28,7 +28,7 @@ $(document).ready(function(){
     function getUrlVars() {
         var vars = [], hash;
         var hashes = window.location.href.slice(
-                window.location.href.indexOf('?') + 1
+            window.location.href.indexOf('?') + 1
             ).split('&');
         for(var i = 0; i < hashes.length; i++)
         {
@@ -86,12 +86,13 @@ $(document).ready(function(){
             startTime = timePushed;
             var markHTML = '<div id="'+currID+'" class="bookmark">';
             markHTML += '<div class="bookmark-start-time">'+startTime+'</div></div>';
+
             $("#stack").prepend(markHTML);
             $(".interval-comment").prop('disabled', false);
         }
         else {
             var comment = $(".interval-comment").val();
-            if(startTime == timePushed || comment == "")
+            if(startTime == timePushed)
                 return;
             $(".interval-comment").val("");
             var url = "/bookmark?start="+startTime+"&end="+timePushed+"&comment="+comment;
@@ -105,22 +106,22 @@ $(document).ready(function(){
         }
     });
 
-    $(".quick-bookmark-button").click(function(){
-        if(!isLive){
-            alert("This Lecture is not live!");
-            return;
-        }
-        var time = $(".time").text();
-        if(prevTime == time){
-            alert("Do not spam!");
-            return;
-        }
-        var url = "/bookmark?time="+time;
-        var markHTML = '<div class="bookmark"><div class="bookmark-start-time">'+time+'</div>';
-        markHTML += '<span class="icon-bolt"></span></div>';
-        prevTime = time;
-        $.post(url, function(){
-            $("#stack").prepend(markHTML);
-        });
+$(".quick-bookmark-button").click(function(){
+    if(!isLive){
+        alert("This Lecture is not live!");
+        return;
+    }
+    var time = $(".time").text();
+    if(prevTime == time){
+        alert("Do not spam!");
+        return;
+    }
+    var url = "/bookmark?time="+time;
+    var markHTML = '<div class="bookmark"><div class="bookmark-start-time">'+time+'</div>';
+    markHTML += '<span class="icon-bolt"></span></div>';
+    prevTime = time;
+    $.post(url, function(){
+        $("#stack").prepend(markHTML);
     });
+});
 });

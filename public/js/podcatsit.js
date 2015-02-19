@@ -34,10 +34,13 @@ $(window).load(function() {
 				duration: ssiTime,
 				easing: ssiType
 			});
+			$(".interval-comment").attr("placeholder", "Comment here!").val("").focus().blur();
 		}
 		else {
 			ssi = true;
 			$('.ssi, .interval-text').velocity('reverse',ssiTime);
+			$(".interval-comment").attr("placeholder", "Press start to comment here").val("").focus().blur();
+
 		}
 	});
 

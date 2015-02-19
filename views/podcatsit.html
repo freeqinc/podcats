@@ -46,7 +46,7 @@
 				<div class="interval-text it-2">Stop</div>
 			</div>
 
-			<input type="text" class="interval-comment" placeholder="comment">
+			<input type="text" class="interval-comment" placeholder="Press start to comment">
 
 
 		</div>
@@ -65,15 +65,23 @@
 					{{start}}
 				</div>
 
+				<div class="bookmark-delete bookmark-icon">
+					<span class="icon-trash"></span>
+				</div>
+				<div class="bookmark-edit bookmark-icon">
+					<span class="icon-pencil"></span>
+				</div>
+
 				<div class="bookmark-end-time">
 					{{end}}
 				</div>
-
+				<br/><br/>
 				<div class="bookmark-comment">
 					{{comment}}
 				</div>
 				{{/if}}
 			</div>
+			<div class="bookmark-divider"></div>
 			{{/each}}
 		</div>
 
