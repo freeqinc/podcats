@@ -19,6 +19,10 @@ exports.archivedLectures = function(req, res){
 		query = req.query;
 	}
 	var courses = data["courses"][query["course"]]
+	for(var i = 0; i < courses["archive"].length; i++){
+		courses["archive"][i]["title"] = query["course"];
+	}
+	console.log(courses);
 	res.render('class', courses);
 };
 
