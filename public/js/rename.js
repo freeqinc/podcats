@@ -36,6 +36,13 @@ $(window).load(function() {
 		else{
 			renaming = false;
 			rename.html("Rename");
+			var index = $(this).closest('.course').attr("class").split("-")[1];
+			var label = lecture.text().trim();
+			//var label = $(".lecture-name").text().trim();
+			//alert(label);
+
+			var url = "/rename_lecture?index="+index+"&label="+label;
+			$.post(url);
 		}
 	});
 
