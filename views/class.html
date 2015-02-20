@@ -28,13 +28,13 @@
 	importnav();
 	</script>
 	<div class="page-wrap">
-		{{#each lectures}}
+		{{#each this.archive}}
 		<div class="course course-1">
 			<div class="lecture-name editable">
-					Lecture1
+					{{name}}
 			</div>
 			<div class="lecture-date">
-				{{date}} 
+				{{id}} 
 			</div>
 			<div class="course-expand">
 				<div class="course-expand-1">

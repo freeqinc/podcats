@@ -41,13 +41,16 @@ exports.record = function(req,res) {
 		var tmp = {};
 		tmp["id"] = new Date().getTime();
 		tmp["marks"] = course["current"]["marks"];
-		course["archive"].push(tmp);
+		tmp["name"] = "Lecture "+(course["archive"].length+1);
+		course["archive"].unshift(tmp);
 		course["current"] = {
 			"marks" : [], 
 			"elapsed" : 0,
 			"isLive" : false,
 			"timeString" : "0:00:00"
 		};
+
+		console.log(course["archive"]);
 	}
 	res.redirect("/professor?course="+req.query["course"]);
 };
