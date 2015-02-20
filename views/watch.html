@@ -20,7 +20,7 @@
 	<script src="./js/course-fold.js"></script>
 	<script src="./js/importnav.js"></script>
 	<script src="./js/watch.js"></script>
-	<title>PodCats | Watch</title>
+	<title>PodCats | Watching: "{{name}}"</title>
 </head>
 
 <body>
@@ -28,9 +28,10 @@
 	importnav();
 	</script>
 	<div class="page-wrap">
-		<div class="time">{{timeString}}</div>
-
-
+		<div class="lecture-title">{{name}}</div>
+		<div>{{course}} | {{id}}</div>
+		<br/><br/>
+		<div><b>ADD FEATURE COMING SOON</b></div>
 		<div id="stack">
 			{{#each marks}}
 			<div id="{{@index}}" class="bookmark">
@@ -38,7 +39,7 @@
 				<div class="bookmark-start-time">
 					{{time}}
 				</div>
-				<div id="del-{{@index}}" class="bookmark-delete bookmark-icon">
+				<div id="d{{@index}}" class="bookmark-delete bookmark-icon">
 					<span class="icon-trash"></span>
 				</div>
 				<br/>
@@ -48,13 +49,13 @@
 					{{start}}
 				</div>
 
-				<div id="del-{{@index}}" class="bookmark-delete bookmark-icon">
+				<div id="d{{@index}}" class="bookmark-delete bookmark-icon">
 					<span class="icon-trash"></span>
 				</div>
-				<div id="edit-{{@index}}" class="bookmark-edit bookmark-icon">
+				<div class="bookmark-edit bookmark-icon">
 					<span class="icon-pencil"></span>
 				</div>
-				<div class="bookmark-check bookmark-icon">
+				<div id="e{{@index}}" class="bookmark-check bookmark-icon">
 					<span class="icon-checkmark"></span>
 				</div>
 
@@ -62,7 +63,7 @@
 					{{end}}
 				</div>
 				<br/><br/>
-				<div class="bookmark-comment editable">{{comment}}</div>
+				<div id="c{{@index}}" class="bookmark-comment editable">{{comment}}</div>
 				{{/if}}
 			</div>
 			<div class="bookmark-divider"></div>
@@ -86,7 +87,7 @@
 
 
 
-		<script type="text/javascript" src="./js/bookmark.js"></script>
+		<script type="text/javascript" src="./js/bookmark-archive.js"></script>
 	</div>
 
 

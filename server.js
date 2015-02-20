@@ -51,13 +51,15 @@ app.get('/professor', professor.liveLecture)
 app.get('/help', help.helpPage);
 app.get('/settings', settings.settingsPage);
 app.get('/watch', watch.watchPage);
+app.get("/timer", podcatsit.timer);
+app.get("/checkLive", professor.checkLive);
 
 app.post("/register", index.signup);
-app.get("/timer", podcatsit.timer);
 app.post("/add_mark", podcatsit.addMark);
 app.post("/mod_mark", podcatsit.modMark);
+//app.post("/watch/add_mark", watch.addMark);
+app.post("/watch/mod_mark", watch.modMark);
 app.post("/validate", index.validate);
-app.get("/checkLive", professor.checkLive);
 app.post("/record", professor.record);
 app.post("/setting_preference", settings.preference);
 app.post("/rename_lecture", lectures.rename);
