@@ -43,7 +43,10 @@ $(window).load(function() {
 			duration: ssiTime2,
 			easing: ssiType
 		});
-		$(this).sibling('.toggle-text').html("true");
+		var option = $(this).parent().attr("class").slice(-1);
+		var url = "/setting_preference?option="+option+"&toggle=true";
+		$.post(url);
+		//$(this).sibling('.toggle-text').html("true");
 	});
 
 	$('.setting-no').click(function(){
@@ -53,13 +56,17 @@ $(window).load(function() {
 			duration: ssiTime2,
 			easing: ssiType
 		});
+		
 		$(this).parent().find('.setting-yes').velocity({
 			backgroundColorAlpha: 0
 		},{
 			duration: ssiTime2,
 			easing: ssiType
 		});
-		$(this).sibling('.toggle-text').html("false");
+		var option = $(this).parent().attr("class").slice(-1);
+		var url = "/setting_preference?option="+option+"&toggle=false";
+		$.post(url);
+		//that.sibling('.toggle-text').html("false");
 	});
 
 
@@ -77,7 +84,5 @@ $(window).load(function() {
 			easing: ssiType
 		});
 	});
-
-
 
 });

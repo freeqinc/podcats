@@ -1,4 +1,4 @@
-var PORT = 3000;
+var PORT = 3001;
 var express = require('express');
 var logger = require('morgan'); // Updated express.logger to Express 4 middleware
 var compression = require('compression'); // Updated express.compress to Express 4 middleware
@@ -56,6 +56,6 @@ app.get("/timer", podcatsit.timer);
 app.post("/add_mark", podcatsit.addMark);
 app.post("/mod_mark", podcatsit.modMark);
 app.post("/validate", index.validate);
-
 app.get("/checkLive", professor.checkLive);
 app.post("/record", professor.record);
+app.post("/setting_preference", settings.preference);
