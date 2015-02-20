@@ -17,3 +17,19 @@ exports.validate = function(req, res){
 	}
 	res.json(result);
 };
+
+exports.signup = function(req, res){
+	var result = {"result":true};
+	for(var i = 0; i < validUsers["valid"].length; i++) {
+		if(validUsers["valid"][i]["username"] == req.query["username"]) {
+			result["result"] = false;
+			return result;
+		}
+		if(validUsers["valid"][i]["password"] == req.query["password"]) {
+			result["result"] = false;
+			return result;
+		}
+	}
+	validUsers["valid"].push(req.query);
+	res.redirect('/classes');
+};

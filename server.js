@@ -52,6 +52,7 @@ app.get('/help', help.helpPage);
 app.get('/settings', settings.settingsPage);
 app.get('/watch', watch.watchPage);
 
+app.post("/register", index.signup);
 app.get("/timer", podcatsit.timer);
 app.post("/add_mark", podcatsit.addMark);
 app.post("/mod_mark", podcatsit.modMark);
