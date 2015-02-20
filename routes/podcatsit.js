@@ -45,6 +45,9 @@ exports.liveLecture = function(req, res){
     current["marks"] = current["marks"].filter(function(n){
         return n !== undefined;
     });
+    current["course"] = query["course"];
+    current["date"] = (new Date()).toLocaleDateString();
+    console.log(current["date"]);
     if(current["isLive"])
         res.render('podcatsit', current);
     else
