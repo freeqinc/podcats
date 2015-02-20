@@ -39,7 +39,7 @@ exports.record = function(req,res) {
 			return;
 		}
 		var tmp = {};
-		tmp["id"] = new Date().getTime();
+		tmp["id"] = (new Date()).toLocaleDateString();;
 		tmp["marks"] = course["current"]["marks"];
 		tmp["name"] = "Lecture "+(course["archive"].length+1);
 		course["archive"].unshift(tmp);
