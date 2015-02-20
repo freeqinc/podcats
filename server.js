@@ -59,3 +59,4 @@ app.post("/validate", index.validate);
 app.get("/checkLive", professor.checkLive);
 app.post("/record", professor.record);
 app.post("/setting_preference", settings.preference);
+app.post("/rename_lecture", lectures.rename);
