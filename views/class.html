@@ -31,7 +31,7 @@
 		{{#each this.archive}}
 		<div class="course course-{{@index}}">
 			<div class="lecture-name editable">
-					{{name}}
+				{{name}}
 			</div>
 			<div class="lecture-date">
 				{{id}} 
@@ -45,8 +45,9 @@
 					</div>
 				</div>
 				<div class="course-expand-2">
-					<div class="ce2-text">
+					<div class="ce2-text link-button">
 						Watch
+						<a href="/watch?course={{@key}}" class="hidden-link"></a>
 					</div>
 				</div>
 			</div>
