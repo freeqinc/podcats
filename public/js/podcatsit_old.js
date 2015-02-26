@@ -61,7 +61,7 @@ $(window).load(function() {
 			ssi = true;
 			$('.ssi').velocity('reverse',ssiTime);
 			$('.interval-comment').velocity({'backgroundColorAlpha':0},1);
-			$(".interval-comment").attr("placeholder", "Press here to begin a mark").val("").focus().blur();
+			$(".interval-comment").attr("placeholder", "Press record to comment here").val("").focus().blur();
 
 		}
 	});
@@ -98,13 +98,5 @@ $(window).load(function() {
 		$(this).fadeOut(1);
 		$(this).parent().find('.bookmark-edit').fadeIn(1);
 	});
-
-
-	$('.interval-comment').keypress(function(e){
-		if(e.which == 13){
-			$(this).closest('.interval-button').trigger('click');
-		}
-	});
-
 
 });
