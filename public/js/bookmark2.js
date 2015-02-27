@@ -104,7 +104,7 @@ $(document).ready(function(){
                 if($(this).find('.tag-selected').html()=="true")
                     tags += $(this).find('.tag-text').html() + " ";
             });
-            comment += " " + tags;
+            comment += " <br/> " + tags;
             if(sTime == pushedAt)
                 return;
             if(comment == " ")
