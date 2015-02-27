@@ -99,16 +99,18 @@ $(document).ready(function(){
         }
         else {
             var comment = $(".interval-comment").val();
+            if(comment == "")
+                comment = "No Comment";
             var tags = "";
             $('.tag').each(function(){
                 if($(this).find('.tag-selected').html()=="true")
-                    tags += $(this).find('.tag-text').html() + " ";
+                    tags += '<span class="tag-comment">' + $(this).find('.tag-text').html() + "</span> ";
             });
-            comment += " <br/> " + tags;
+            comment += "<br/>" + tags;
             if(sTime == pushedAt)
                 return;
-            if(comment == " ")
-                comment = "No Comment";
+            //if(comment == " ")
+            //    comment = "No Comment";
             $(".interval-comment").val("");
             var url = "/add_mark?start="+sTime+"&end="+pushedAt+"&comment="+comment;
             /*var markHTML = tag('div', "bookmark-delete bookmark-icon", '', tag("span","icon-trash",'',''))
