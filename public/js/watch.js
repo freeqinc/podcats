@@ -96,5 +96,14 @@ $(window).load(function() {
 		$(this).fadeOut(1);
 		$(this).parent().find('.bookmark-edit').fadeIn(1);
 	});
+	
+	$(".editable").keypress(function(e){
+		if(e.which == 13){
+			var checkmark = $(this).siblings('.bookmark-check');
+			$(this).attr('contenteditable','false');
+			checkmark.fadeOut(1);
+			checkmark.parent().find('.bookmark-edit').fadeIn(1);
+		}
+	});
 
 });

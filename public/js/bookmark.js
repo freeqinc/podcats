@@ -146,4 +146,13 @@ $(document).ready(function(){
         $.post("/mod_mark?action=edit&index="+index+"&comment="+newComment);
         location.reload();
     });
+
+    $(".editable").keypress(function(e){
+        if(e.which == 13){
+            var index = $(this).attr("id");
+            var newComment = $("#c"+index.substring(1)).text();
+            $.post("/mod_mark?action=edit&index="+index+"&comment="+newComment);
+            location.reload();
+        }
+    });
 });
