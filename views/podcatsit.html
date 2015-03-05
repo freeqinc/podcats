@@ -51,6 +51,7 @@
 
 
 		<div id="stack">
+			{{#if marks}}
 			{{#each marks}}
 			<div id="{{@index}}" class="bookmark">
 				{{#if time}}
@@ -86,6 +87,9 @@
 			</div>
 			<div class="bookmark-divider"></div>
 			{{/each}}
+			{{else}}
+			<div class="empty">No Comments Available!</div>
+			{{/if}}
 		</div>
 
 	<!--<div class="podcats-button" id="pb-1">!</div>
