@@ -20,6 +20,7 @@
 	<script src="./js/course-fold.js"></script>
 	<script src="./js/importnav.js"></script>
 	<script src="./js/podcatsit2.js"></script>
+	<script src="./js/limit.js"></script>
 	<title>PodCats | Live Lecture</title>
 </head>
 
@@ -41,14 +42,14 @@
 					<span class="icon-bookmark ssi ssi-play"></span>
 					<span class="icon-stop ssi ssi-stop"></span>
 				</div>
-				<input type="text" class="interval-comment" placeholder="Press here add tags">
+				<input type="text" id="text" maxlength="100" class="interval-comment" placeholder="Press here add tags">
 				<div class="interval-text it-1">Begin mark&nbsp;</div>
 				<div class="interval-text it-2">End mark&nbsp;&nbsp;</div>
 
 			</div>
 			<div class="charlim">
 				Characters Left:
-				<span class="numleft">100</span>
+				<span class="numleft"></span>
 			</div>
 		</div>
 
