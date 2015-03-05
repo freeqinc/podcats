@@ -48,8 +48,12 @@ exports.liveLecture = function(req, res){
     current["course"] = query["course"];
     current["date"] = (new Date()).toLocaleDateString();
     console.log(current["date"]);
-    if(current["isLive"])
-        res.render('podcatsit', current);
+    if(current["isLive"]){
+        if(Math.random() < 0.5) 
+            res.render('podcatsit', current);
+        else
+            res.render('podcatsit2', current);
+    }
     else
 	   res.redirect('/classes'); // TO BE CHANGED
 };
