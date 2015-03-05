@@ -75,8 +75,10 @@ exports.modMark = function(req,res) {
         res.redirect("/podcatsit");
         return;
     }
+    console.log(req.query);
     var currCourse = query["course"];
-    var index = parseInt(req.query["index"].substring(1));
+    var index = parseInt(req.query["index"]);
+    console.log(index);
     var reference = data["courses"][currCourse]["current"]["marks"];
     if(req.query["action"] == "delete"){
         delete reference[index];
