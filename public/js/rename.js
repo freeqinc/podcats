@@ -29,12 +29,30 @@ $(window).load(function() {
 			lecture.attr('contenteditable','true');
 			lecture.focus();
 			placeCaretAtEnd(lecture.get(0));
-			rename.html("Click here when done!");
+			rename.html("Click here or press enter when done!");
 			renaming = true;
 			return false;
 		}
 		else{
 			renaming = false;
+			rename.html("Rename");
+			var index = $(this).closest('.course').attr("class").split("-")[1];
+			var label = lecture.text().trim();
+			//var label = $(".lecture-name").text().trim();
+			//alert(label);
+
+			var url = "/rename_lecture?index="+index+"&label="+label;
+			$.post(url);
+		}
+	});
+
+	$(".editable").keypress(function(e){
+		if(e.which == 13){
+			var rename = $(this).siblings('.course-expand').find('.rename-text');
+			console.log(rename);
+			var lecture = $(this).closest('.course').find('.lecture-name');
+			renaming = false;
+			lecture.attr('contenteditable','false');
 			rename.html("Rename");
 			var index = $(this).closest('.course').attr("class").split("-")[1];
 			var label = lecture.text().trim();

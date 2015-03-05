@@ -52,12 +52,12 @@
 					$('.the-input').val("");
 					window.location.href = '/classes';
 						//window.location.replace("/classes");
-					}
-					else {
+				}
+				else {
 						alert("Invalid username and/or password");
 						return;
-					}
-				});
+				}
+			});
 		});
 		$('.signup').click(function(){
 			var username = $(".ti-1").val();
@@ -72,6 +72,40 @@
 					$(".ti-2").val("");
 					alert("Sign-up successful!");
 					window.location.replace("/classes");
+				});
+			}
+		});
+		$(".ti-1").keypress(function(e){
+			if(e.which == 13){
+				var username = $(".ti-1").val();
+				var password = $(".ti-2").val();
+				$.post("/validate?username="+username+"&password="+password, function(result){
+					if(result["1"] && result["2"]){
+						$('.the-input').val("");
+						window.location.href = '/classes';
+							//window.location.replace("/classes");
+					}
+					else {
+							alert("Invalid username and/or password");
+							return;
+					}
+				});
+			}
+		});
+		$(".ti-2").keypress(function(e){
+			if(e.which == 13){
+				var username = $(".ti-1").val();
+				var password = $(".ti-2").val();
+				$.post("/validate?username="+username+"&password="+password, function(result){
+					if(result["1"] && result["2"]){
+						$('.the-input').val("");
+						window.location.href = '/classes';
+							//window.location.replace("/classes");
+					}
+					else {
+							alert("Invalid username and/or password");
+							return;
+					}
 				});
 			}
 		});
