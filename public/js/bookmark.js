@@ -115,6 +115,7 @@ $(document).ready(function(){
             added++;
             $.post(url, function(data){
                 $("#stack").prepend(markHTML);
+                $(".empty").hide();
             });
             sTime = "";
             $(".interval-comment").prop('disabled', true);
@@ -143,7 +144,13 @@ $(document).ready(function(){
         var index = parseInt($(this).attr("id").substring(1))+added;
         $.post("/mod_mark?action=delete&index="+index, function(data){
             $("#"+(index-added)).slideUp();
-            $("#"+(index-added)).next( ".bookmark-divider" ).hide();
+            $("#"+(index-added)).next(".bookmark-divider").hide();
+            //$("#"+(index-added)).next(".bookmark-divider").remove();
+            $("#"+(index-added)).remove();
+            var bookmarks = document.getElementsByClassName("bookmark");
+            if(bookmarks.length == 0){
+                $(".empty").show();
+            }
         });
     });
 
