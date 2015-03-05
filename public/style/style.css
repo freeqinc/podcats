@@ -460,4 +460,11 @@ body {
 }
 
 
-
+/* EXTRA SHYT */
+.charlim{
+	width: 93%;
+	text-align: right;
+	margin: 0 auto;
+	font-size: 2em;
+	color: rgba(255,255,255,0.7);
+}
