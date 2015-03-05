@@ -96,7 +96,7 @@ $(document).ready(function(){
             sTime = pushedAt;
             /*var markHTML = tag("div","bookmark", currID, 
                 tag("div", "bookmark-start-time", '', sTime))
-                + tag("div", "bookmark-divider",'','');*/
++ tag("div", "bookmark-divider",'','');*/
             //$("#stack").prepend(markHTML);
             $(".interval-comment").prop('disabled', false);
         }
@@ -106,8 +106,10 @@ $(document).ready(function(){
                 comment = "No Comment";
             var tags = "";
             $('.tag').each(function(){
-                if($(this).find('.tag-selected').html()=="true")
-                    tags += '<span class="tag-comment">' + $(this).find('.tag-text').html() + "</span> ";
+                if($(this).find('.tag-selected').html()=="true"){
+                    tags += '<span class="tag-comment">' + $(this).find('.tag-text').html();
+                    tags +=  '<span class="tag-close icon-cross"></span></span> ';
+                }   
             });
             comment += "<br/>" + tags;
             if(sTime == pushedAt)
@@ -118,13 +120,13 @@ $(document).ready(function(){
             ptr--;
             var url = "/add_mark?start="+sTime+"&end="+pushedAt+"&comment="+comment;
             var markHTML = '<div id="'+ptr+'" class="bookmark">'+
-                '<div class="bookmark-start-time">'+sTime+'</div>'+
-                '<div id="d'+ptr+'" class="bookmark-delete bookmark-icon"><span class="icon-trash"></span></div>'+
-                '<div class="bookmark-edit bookmark-icon"><span class="icon-pencil"></span></div>'+
-                '<div id="e'+ptr+'" class="bookmark-check bookmark-icon"><span class="icon-checkmark"></span></div>'+
-                '<div class="bookmark-end-time">'+pushedAt+'</div><br/><br/>'+
-                '<div id="c'+ptr+'" class="bookmark-comment editable">'+comment+'</div></div>'+
-                '<div class="bookmark-divider"></div>';
+            '<div class="bookmark-start-time">'+sTime+'</div>'+
+            '<div id="d'+ptr+'" class="bookmark-delete bookmark-icon"><span class="icon-trash"></span></div>'+
+            '<div class="bookmark-edit bookmark-icon"><span class="icon-pencil"></span></div>'+
+            '<div id="e'+ptr+'" class="bookmark-check bookmark-icon"><span class="icon-checkmark"></span></div>'+
+            '<div class="bookmark-end-time">'+pushedAt+'</div><br/><br/>'+
+            '<div id="c'+ptr+'" class="bookmark-comment editable">'+comment+'</div></div>'+
+            '<div class="bookmark-divider"></div>';
             added++;
             $.post(url, function(data) {
                 $("#stack").prepend(markHTML);
@@ -135,13 +137,13 @@ $(document).ready(function(){
         }
     });
 
-    $(".quick-bookmark-button").click(function(){
-        var time = $(".time").text();
-        if(prevTime == time){
-            alert("Do not spam!");
-            return;
-        }
-        var url = "/add_mark?time="+time;
+$(".quick-bookmark-button").click(function(){
+    var time = $(".time").text();
+    if(prevTime == time){
+        alert("Do not spam!");
+        return;
+    }
+    var url = "/add_mark?time="+time;
         //var markHTML = '<div class="bookmark"><div class="bookmark-start-time">'+time+'</div>';
         //markHTML += '<span class="icon-bolt"></span></div>';
         prevTime = time;
@@ -149,38 +151,38 @@ $(document).ready(function(){
         setTimeout(function(){location.reload();},125);
     });
 
-    $("#stack").on("click", ".bookmark-delete", function(){
-        var answer = confirm("Your mark will be deleted permanently. Is this still OK?");
-        if(answer == false) {
-            return;
-        }
-        var index = parseInt($(this).attr("id").substring(1))+added;
-        $.post("/mod_mark?action=delete&index="+index, function(data){
-            $("#"+(index-added)).slideUp();
-            $("#"+(index-added)).next( ".bookmark-divider" ).hide();
-        });
+$("#stack").on("click", ".bookmark-delete", function(){
+    var answer = confirm("Your mark will be deleted permanently. Is this still OK?");
+    if(answer == false) {
+        return;
+    }
+    var index = parseInt($(this).attr("id").substring(1))+added;
+    $.post("/mod_mark?action=delete&index="+index, function(data){
+        $("#"+(index-added)).slideUp();
+        $("#"+(index-added)).next( ".bookmark-divider" ).hide();
     });
+});
 
-    $(".bookmark-check").click(function(){
-        var index = $(this).attr("id");
-        var newComment = $("#c"+index.substring(1)).text();
-        $.post("/mod_mark?action=edit&index="+index+"&comment="+newComment);
-        location.reload();
-    });
-    
-    $("#stack").on("click", ".bookmark-check", function(){
+$(".bookmark-check").click(function(){
+    var index = $(this).attr("id");
+    var newComment = $("#c"+index.substring(1)).text();
+    $.post("/mod_mark?action=edit&index="+index+"&comment="+newComment);
+    location.reload();
+});
+
+$("#stack").on("click", ".bookmark-check", function(){
+    var index = $(this).attr("id");
+    var newComment = $("#c"+index.substring(1)).text();
+    index = parseInt(index.substring(1))+added;
+    $.post("/mod_mark?action=edit&index="+index+"&comment="+newComment);
+});
+
+$("#stack").on("keypress", ".editable", function(e){
+    if(e.which == 13){
         var index = $(this).attr("id");
         var newComment = $("#c"+index.substring(1)).text();
         index = parseInt(index.substring(1))+added;
         $.post("/mod_mark?action=edit&index="+index+"&comment="+newComment);
-    });
-
-    $("#stack").on("keypress", ".editable", function(e){
-        if(e.which == 13){
-            var index = $(this).attr("id");
-            var newComment = $("#c"+index.substring(1)).text();
-            index = parseInt(index.substring(1))+added;
-            $.post("/mod_mark?action=edit&index="+index+"&comment="+newComment);
-        }
-    });
+    }
+});
 });

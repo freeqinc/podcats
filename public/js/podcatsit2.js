@@ -95,22 +95,31 @@ $('.control-button').click(function(){
 });
 
 
-	$('#stack').on("click", ".bookmark-edit", function(){
-		var comment = $(this).siblings('.bookmark-comment');
-		comment.attr('contenteditable','true');
-		comment.focus();
-		placeCaretAtEnd(comment.get(0));
-		$(this).fadeOut(1);
-		$(this).parent().find('.bookmark-check').fadeIn(1);
-		rename.attr('contenteditable','true');
-	});
+$('#stack').on("click", ".bookmark-edit", function(){
+	$(this).parent().find('.tag-close').addClass('tag-close-edit');
+	$(this).parent().find('.tag-comment').addClass('tag-comment-point');
+	var comment = $(this).siblings('.bookmark-comment');
+	comment.attr('contenteditable','true');
+	comment.focus();
+	placeCaretAtEnd(comment.get(0));
+	$(this).fadeOut(1);
+	$(this).parent().find('.bookmark-check').fadeIn(1);
+	rename.attr('contenteditable','true');
 
-	$('#stack').on("click", ".bookmark-check", function(){
-		var comment = $(this).siblings('.bookmark-comment');
-		comment.attr('contenteditable','false');
-		$(this).fadeOut(1);
-		$(this).parent().find('.bookmark-edit').fadeIn(1);
-	});
+});
+
+$('#stack').on("click", '.tag-comment-point', function(){
+	$(this).remove();
+});
+
+$('#stack').on("click", ".bookmark-check", function(){
+	$(this).parent().find('.tag-close').removeClass('tag-close-edit');
+	$(this).parent().find('.tag-comment').removeClass('tag-comment-point');
+	var comment = $(this).siblings('.bookmark-comment');
+	comment.attr('contenteditable','false');
+	$(this).fadeOut(1);
+	$(this).parent().find('.bookmark-edit').fadeIn(1);
+});
 
 
 $('.interval-comment').keypress(function(e){
@@ -132,13 +141,15 @@ $('.tag').click(function(){
 	$('.interval-comment').focus();
 });
 
-	$("#stack").on("keypress", ".editable", function(e){
-		if(e.which == 13){
-			var checkmark = $(this).siblings('.bookmark-check');
-			$(this).attr('contenteditable','false');
-			checkmark.fadeOut(1);
-			checkmark.parent().find('.bookmark-edit').fadeIn(1);
-		}
-	});
+$("#stack").on("keypress", ".editable", function(e){
+	if(e.which == 13){
+		$(this).parent().find('.tag-close').removeClass('tag-close-edit');
+		$(this).parent().find('.tag-comment').removeClass('tag-comment-point');
+		var checkmark = $(this).siblings('.bookmark-check');
+		$(this).attr('contenteditable','false');
+		checkmark.fadeOut(1);
+		checkmark.parent().find('.bookmark-edit').fadeIn(1);
+	}
+});
 
 });

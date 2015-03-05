@@ -160,7 +160,7 @@
 
 .bookmark-icon{
 	position: absolute;
-	font-size: 1em;
+	font-size: 1.5em;
 	cursor: pointer;
 }
 
@@ -169,12 +169,12 @@
 }
 
 .bookmark-edit{
-	right: 50px;
+	right: 75px;
 }
 
 .bookmark-check{
-	right: 50px;
-	font-size: 1.1em;
+	right: 75px;
+	font-size: 1.5em;
 	display: none;
 }
 
@@ -228,15 +228,32 @@
 }
 
 .tag-comment{
+	position: relative;
 	font-size: .8em;
 	vertical-align: top;
-	width: 200px;
+	width: 220px;
 	height: 60px;
 	line-height: 60px;
 	border-radius: 10px;
 	background: rgba(255,255,255,0.1);
 	text-align: center;
 	margin: 4px 2px;
+}
+
+.tag-close{
+	position: absolute;
+	right: 0;
+	top: 0;
+	font-size: 1.2em;
+	visibility: hidden;
+}
+
+.tag-close-edit{
+	visibility: visible;
+}
+
+.tag-comment-point{
+	cursor: pointer;
 }
 
 
