@@ -102,19 +102,17 @@ $(document).ready(function(){
         }
         else {
             var comment = $(".interval-comment").val();
-            if(comment == "")
-                comment = "No Comment";
             var tags = "";
             $('.tag').each(function(){
                 if($(this).find('.tag-selected').html()=="true"){
                     tags += '<span class="tag-comment">' + $(this).find('.tag-text').html();
-                    tags +=  '<span class="tag-close icon-cross"></span></span> ';
-                    if(comment == "No Comment"){
-                        comment = '';
-                    }
+                    tags += '<span class="tag-close icon-cross"></span></span> ';
                 }   
             });
-            if(comment != '') {
+            if(comment == "" && tags == "") {
+                comment = "No Comment";
+            }
+            else if(comment != '') {
                 comment += "<br/>" + tags;
             }
             else {
