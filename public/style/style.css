@@ -197,14 +197,19 @@ body {
 }
 
 .nav-logo{
-	width: 300px;
+	width: 75px;
 	position: absolute;
+	top: 10px;
 	right: 0;
 	text-align: center;
 	line-height: 60px;
 	color: #FFFFFF;
 	font-size: 4em;
 	z-index: 0;
+}
+
+.nav-img{
+	width: 50px;
 }
 
 .logo-bold{
