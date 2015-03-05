@@ -198,7 +198,8 @@ body {
 
 .nav-logo{
 	width: 300px;
-	margin: 0 auto;
+	position: absolute;
+	right: 0;
 	text-align: center;
 	line-height: 60px;
 	color: #FFFFFF;
