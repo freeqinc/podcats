@@ -31,7 +31,12 @@
 		<div class="lecture-title">{{name}}</div>
 		<div>{{course}} | {{id}}</div>
 		<br/><br/>
-		<div><b>ADD FEATURE COMING SOON</b></div>
+		<div id="audio-player">
+		    <audio controls="" id="audio">
+		        <source type="audio/mpeg" src="http://podcasts.ucsd.edu/Podcasts//chem6awi15/chem6awi15-03042015-0800.mp3" id="mp3"></source>
+		        <p>Your browser does not support the HTML5 Video element! :( </p>
+		    </audio>
+		</div>
 		<div id="stack">
 			{{#each marks}}
 			<div id="{{@index}}" class="bookmark">
