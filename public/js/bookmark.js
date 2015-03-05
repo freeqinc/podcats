@@ -3,6 +3,9 @@ $(document).ready(function(){
     var sTime = "";
     var prevTime = "";
     var currID = "";
+    var added = 0;
+    var ptr = 0;
+
     $(".interval-comment").prop('disabled', true);
 
     function updateTime(){
@@ -89,12 +92,7 @@ $(document).ready(function(){
     $(".interval-button").click(function(){
         var pushedAt = $(".time").text();
         if(sTime == "") {
-            //currID = makeid();
             sTime = pushedAt;
-            /*var markHTML = tag("div","bookmark", currID, 
-                tag("div", "bookmark-start-time", '', sTime))
-                + tag("div", "bookmark-divider",'','');*/
-            //$("#stack").prepend(markHTML);
             $(".interval-comment").prop('disabled', false);
         }
         else {
@@ -104,19 +102,26 @@ $(document).ready(function(){
             if(!comment)
                 comment = "No Comment";
             $(".interval-comment").val("");
+            ptr--;
             var url = "/add_mark?start="+sTime+"&end="+pushedAt+"&comment="+comment;
-            /*var markHTML = tag('div', "bookmark-delete bookmark-icon", '', tag("span","icon-trash",'',''))
-                + tag('div', "bookmark-edit bookmark-icon", '', tag("span","icon-pencil",'',''))
-                + tag("div","bookmark-end-time",'',pushedAt) + "<br/><br/>"
-                + tag("div","bookmark-comment",'',comment);*/
-            $.post(url);
+            var markHTML = '<div id="'+ptr+'" class="bookmark">'+
+                '<div class="bookmark-start-time">'+sTime+'</div>'+
+                '<div id="d'+ptr+'" class="bookmark-delete bookmark-icon"><span class="icon-trash"></span></div>'+
+                '<div class="bookmark-edit bookmark-icon"><span class="icon-pencil"></span></div>'+
+                '<div id="e'+ptr+'" class="bookmark-check bookmark-icon"><span class="icon-checkmark"></span></div>'+
+                '<div class="bookmark-end-time">'+pushedAt+'</div><br/><br/>'+
+                '<div id="c'+ptr+'" class="bookmark-comment editable">'+comment+'</div></div>'+
+                '<div class="bookmark-divider"></div>';
+            added++;
+            $.post(url, function(data){
+                $("#stack").prepend(markHTML);
+            });
             sTime = "";
             $(".interval-comment").prop('disabled', true);
-            setTimeout(function(){location.reload();},125);
         }
     });
 
-    $(".quick-bookmark-button").click(function(){
+    /*$(".quick-bookmark-button").click(function(){
         var time = $(".time").text();
         if(prevTime == time){
             alert("Do not spam!");
@@ -128,31 +133,33 @@ $(document).ready(function(){
         prevTime = time;
         $.post(url);
         setTimeout(function(){location.reload();},125);
-    });
+    });*/
 
-    $(".bookmark-delete").click(function(){
+    $("#stack").on("click", ".bookmark-delete", function(){
         var answer = confirm("Your mark will be deleted permanently. Is this still OK?");
         if(answer == false) {
             return;
         }
-        var index = $(this).attr("id");
-        $.post("/mod_mark?action=delete&index="+index);
-        location.reload();
+        var index = parseInt($(this).attr("id").substring(1))+added;
+        $.post("/mod_mark?action=delete&index="+index, function(data){
+            $("#"+(index-added)).slideUp();
+            $("#"+(index-added)).next( ".bookmark-divider" ).hide();
+        });
     });
 
-    $(".bookmark-check").click(function(){
+    $("#stack").on("click", ".bookmark-check", function(){
         var index = $(this).attr("id");
         var newComment = $("#c"+index.substring(1)).text();
+        index = parseInt(index.substring(1))+added;
         $.post("/mod_mark?action=edit&index="+index+"&comment="+newComment);
-        location.reload();
     });
 
-    $(".editable").keypress(function(e){
+    $("#stack").on("keypress", ".editable", function(e){
         if(e.which == 13){
             var index = $(this).attr("id");
             var newComment = $("#c"+index.substring(1)).text();
+            index = parseInt(index.substring(1))+added;
             $.post("/mod_mark?action=edit&index="+index+"&comment="+newComment);
-            location.reload();
         }
     });
 });

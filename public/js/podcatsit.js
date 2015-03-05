@@ -82,7 +82,7 @@ $(window).load(function() {
 	});
 
 
-	$('.bookmark-edit').click(function(){
+	$('#stack').on("click", ".bookmark-edit", function(){
 		var comment = $(this).siblings('.bookmark-comment');
 		comment.attr('contenteditable','true');
 		comment.focus();
@@ -92,7 +92,7 @@ $(window).load(function() {
 		rename.attr('contenteditable','true');
 	});
 
-	$('.bookmark-check').click(function(){
+	$('#stack').on("click", ".bookmark-check", function(){
 		var comment = $(this).siblings('.bookmark-comment');
 		comment.attr('contenteditable','false');
 		$(this).fadeOut(1);
@@ -106,7 +106,7 @@ $(window).load(function() {
 		}
 	});
 
-	$(".editable").keypress(function(e){
+	$("#stack").on("keypress", ".editable", function(e){
 		if(e.which == 13){
 			var checkmark = $(this).siblings('.bookmark-check');
 			$(this).attr('contenteditable','false');
