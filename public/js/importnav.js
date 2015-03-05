@@ -11,9 +11,10 @@ function importnav(){
 	document.write("			<div class=\"burger-2 burger-line\"><\/div>");
 	document.write("			<div class=\"burger-3 burger-line\"><\/div>");
 	document.write("		<\/div>");
-	document.write("	<div class=\"nav-logo link-button\">");
-	document.write("			POD<span class=\"logo-bold\">CATS<\/span> ");
-	document.write("			<a href=\"/classes\" class=\"hidden-link\"><\/a>");
+	document.write("		<div class=\"nav-logo link-button\">");
+	document.write("			<img class=\"nav-img\" src=\".\/images\/white_cat.png\">");
+	document.write("	<!-- 		POD<span class=\"logo-bold\">CATS<\/span>  -->");
+	document.write("			<a href=\"\/classes\" class=\"hidden-link\"><\/a>");
 	document.write("		<\/div>");
 	document.write("	<\/div>");
 	document.write("	<div class=\"navigation-expand\">");
