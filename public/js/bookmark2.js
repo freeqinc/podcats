@@ -109,9 +109,17 @@ $(document).ready(function(){
                 if($(this).find('.tag-selected').html()=="true"){
                     tags += '<span class="tag-comment">' + $(this).find('.tag-text').html();
                     tags +=  '<span class="tag-close icon-cross"></span></span> ';
+                    if(comment == "No Comment"){
+                        comment = '';
+                    }
                 }   
             });
-            comment += "<br/>" + tags;
+            if(comment != '') {
+                comment += "<br/>" + tags;
+            }
+            else {
+                comment += tags;
+            }
             if(sTime == pushedAt)
                 return;
             //if(comment == " ")
@@ -130,6 +138,7 @@ $(document).ready(function(){
             added++;
             $.post(url, function(data) {
                 $("#stack").prepend(markHTML);
+                $(".empty").hide();
             });
             sTime = "";
             $(".interval-comment").prop('disabled', true);
@@ -137,52 +146,57 @@ $(document).ready(function(){
         }
     });
 
-$(".quick-bookmark-button").click(function(){
-    var time = $(".time").text();
-    if(prevTime == time){
-        alert("Do not spam!");
-        return;
-    }
-    var url = "/add_mark?time="+time;
-        //var markHTML = '<div class="bookmark"><div class="bookmark-start-time">'+time+'</div>';
-        //markHTML += '<span class="icon-bolt"></span></div>';
-        prevTime = time;
-        $.post(url);
-        setTimeout(function(){location.reload();},125);
+    $(".quick-bookmark-button").click(function(){
+        var time = $(".time").text();
+        if(prevTime == time){
+            alert("Do not spam!");
+            return;
+        }
+        var url = "/add_mark?time="+time;
+            //var markHTML = '<div class="bookmark"><div class="bookmark-start-time">'+time+'</div>';
+            //markHTML += '<span class="icon-bolt"></span></div>';
+            prevTime = time;
+            $.post(url);
+            setTimeout(function(){location.reload();},125);
     });
 
-$("#stack").on("click", ".bookmark-delete", function(){
-    var answer = confirm("Your mark will be deleted permanently. Is this still OK?");
-    if(answer == false) {
-        return;
-    }
-    var index = parseInt($(this).attr("id").substring(1))+added;
-    $.post("/mod_mark?action=delete&index="+index, function(data){
-        $("#"+(index-added)).slideUp();
-        $("#"+(index-added)).next( ".bookmark-divider" ).hide();
+    $("#stack").on("click", ".bookmark-delete", function(){
+        var answer = confirm("Your mark will be deleted permanently. Is this still OK?");
+        if(answer == false) {
+            return;
+        }
+        var index = parseInt($(this).attr("id").substring(1))+added;
+        $.post("/mod_mark?action=delete&index="+index, function(data){
+            $("#"+(index-added)).slideUp();
+            $("#"+(index-added)).next( ".bookmark-divider" ).hide();
+            $("#"+(index-added)).remove();
+            var bookmarks = document.getElementsByClassName("bookmark");
+            if(bookmarks.length == 0){
+                $(".empty").show();
+            }
+        });
     });
-});
 
-$(".bookmark-check").click(function(){
-    var index = $(this).attr("id");
-    var newComment = $("#c"+index.substring(1)).text();
-    $.post("/mod_mark?action=edit&index="+index+"&comment="+newComment);
-    location.reload();
-});
+    /*$(".bookmark-check").click(function(){
+        var index = $(this).attr("id");
+        var newComment = $("#c"+index.substring(1)).text();
+        $.post("/mod_mark?action=edit&index="+index+"&comment="+newComment);
+        location.reload();
+    });*/
 
-$("#stack").on("click", ".bookmark-check", function(){
-    var index = $(this).attr("id");
-    var newComment = $("#c"+index.substring(1)).text();
-    index = parseInt(index.substring(1))+added;
-    $.post("/mod_mark?action=edit&index="+index+"&comment="+newComment);
-});
-
-$("#stack").on("keypress", ".editable", function(e){
-    if(e.which == 13){
+    $("#stack").on("click", ".bookmark-check", function(){
         var index = $(this).attr("id");
         var newComment = $("#c"+index.substring(1)).text();
         index = parseInt(index.substring(1))+added;
         $.post("/mod_mark?action=edit&index="+index+"&comment="+newComment);
-    }
-});
+    });
+
+    $("#stack").on("keypress", ".editable", function(e){
+        if(e.which == 13){
+            var index = $(this).attr("id");
+            var newComment = $("#c"+index.substring(1)).text();
+            index = parseInt(index.substring(1))+added;
+            $.post("/mod_mark?action=edit&index="+index+"&comment="+newComment);
+        }
+    });
 });
