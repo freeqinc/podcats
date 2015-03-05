@@ -11,62 +11,56 @@ $(window).load(function() {
 
 	$('.setting-group').each(function(){
 		var toggle = $(this).find('.toggle-text');
-		if(toggle.html() =="true"){
-			$(this).find('.setting-yes').velocity({
-				backgroundColorAlpha: 0.3
-			},{
-				duration: ssiTime2,
-				easing: ssiType
-			});
+		if(toggle.html()=="true"){
+			$(this).find('.setting-yes').addClass('setting-selected');
 		}
 		else{
-			$(this).find('.setting-no').velocity({
-				backgroundColorAlpha: 0.3
-			},{
-				duration: ssiTime2,
-				easing: ssiType
-			});
+			$(this).find('.setting-no').addClass('setting-selected');
 		}
+		// if(toggle.html() =="true"){
+		// 	$(this).find('.setting-yes').velocity({
+		// 		backgroundColorAlpha: 0.1
+		// 	},{
+		// 		duration: ssiTime2,
+		// 		easing: ssiType
+		// 	});
+		// }
+		// else{
+		// 	$(this).find('.setting-no').velocity({
+		// 		backgroundColorAlpha: 0.1
+		// 	},{
+		// 		duration: ssiTime2,
+		// 		easing: ssiType
+		// 	});
+		// }
 	});
 
 
 	$('.setting-yes').click(function(){
-		$(this).velocity({
-			backgroundColorAlpha: 0.3
-		},{
-			duration: ssiTime2,
-			easing: ssiType
-		});
-		$(this).parent().find('.setting-no').velocity({
-			backgroundColorAlpha: 0
-		},{
-			duration: ssiTime2,
-			easing: ssiType
-		});
-		var option = $(this).parent().attr("class").slice(-1);
-		var url = "/setting_preference?option="+option+"&toggle=true";
-		$.post(url);
-		//$(this).sibling('.toggle-text').html("true");
+		$(this).addClass('setting-selected');
+		$(this).parent().find('.setting-no').removeClass('setting-selected');
+		// $(this).velocity({
+		// 	backgroundColorAlpha: 0.1
+		// },{
+		// 	duration: ssiTime2,
+		// 	easing: ssiType
+		// });
+		// $(this).parent().find('.setting-no').velocity({
+		// 	backgroundColorAlpha: 0
+		// },{
+		// 	duration: ssiTime2,
+		// 	easing: ssiType
+		// });
+		// var option = $(this).parent().attr("class").slice(-1);
+		// var url = "/setting_preference?option="+option+"&toggle=true";
+		// $.post(url);
+		$(this).siblings('.toggle-text').html("true");
 	});
 
 	$('.setting-no').click(function(){
-		$(this).velocity({
-			backgroundColorAlpha: 0.3
-		},{
-			duration: ssiTime2,
-			easing: ssiType
-		});
-		
-		$(this).parent().find('.setting-yes').velocity({
-			backgroundColorAlpha: 0
-		},{
-			duration: ssiTime2,
-			easing: ssiType
-		});
-		var option = $(this).parent().attr("class").slice(-1);
-		var url = "/setting_preference?option="+option+"&toggle=false";
-		$.post(url);
-		//that.sibling('.toggle-text').html("false");
+		$(this).addClass('setting-selected');
+		$(this).parent().find('.setting-yes').removeClass('setting-selected');
+		$(this).siblings('.toggle-text').html("false");
 	});
 
 
