@@ -4,6 +4,8 @@ var logger = require('morgan'); // Updated express.logger to Express 4 middlewar
 var compression = require('compression'); // Updated express.compress to Express 4 middleware
 var path = require('path');
 var hbs = require('hbs');
+hbs.registerPartial('partial_name', 'partial value');
+hbs.registerPartials(__dirname + '/views/partials');
 //var handlebars = require('express-handlebars');
 
 var index = require('./routes/index');
