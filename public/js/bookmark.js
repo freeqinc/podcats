@@ -95,6 +95,7 @@ $(document).ready(function(){
         if(sTime == "") {
             sTime = pushedAt;
             $(".interval-comment").prop('disabled', false);
+            woopra.track("a_version_mark_click");
         }
         else {
             var comment = $(".interval-comment").val();
@@ -152,6 +153,7 @@ $(document).ready(function(){
             //$("#"+(index-added)).next(".bookmark-divider").remove();
             $("#"+(index-added)).remove();
             var bookmarks = document.getElementsByClassName("bookmark");
+            woopra.track("a_version_delete_click");
             if(bookmarks.length == 0){
                 $(".empty").show();
             }
@@ -162,6 +164,7 @@ $(document).ready(function(){
         var index = $(this).attr("id");
         var newComment = $("#c"+index.substring(1)).text();
         index = parseInt(index.substring(1))+added;
+        woopra.track("a_version_edit_click");
         $.post("/mod_mark?action=edit&index="+index+"&comment="+newComment);
     });
 
@@ -170,6 +173,7 @@ $(document).ready(function(){
             var index = $(this).attr("id");
             var newComment = $("#c"+index.substring(1)).text();
             index = parseInt(index.substring(1))+added;
+            woopra.track("a_version_edit_click");
             $.post("/mod_mark?action=edit&index="+index+"&comment="+newComment);
         }
     });

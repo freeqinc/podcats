@@ -5,6 +5,7 @@ $(document).ready(function(){
     var currID = "";
     var added = 0;
     var ptr = 0;
+    var tag_selected = [false, false, false, false, false, false, false];
 
     $(".interval-comment").prop('disabled', true);
 
@@ -99,6 +100,7 @@ $(document).ready(function(){
 + tag("div", "bookmark-divider",'','');*/
             //$("#stack").prepend(markHTML);
             $(".interval-comment").prop('disabled', false);
+            woopra.track("b_version_tag_click");
         }
         else {
             var comment = $(".interval-comment").val();
@@ -134,6 +136,9 @@ $(document).ready(function(){
             '<div id="c'+ptr+'" class="bookmark-comment editable">'+comment+'</div></div>'+
             '<div class="bookmark-divider"></div>';
             added++;
+            woopra.track("b_version_comment_input", {
+                message: comment
+            });
             $.post(url, function(data) {
                 $("#stack").prepend(markHTML);
                 $(".empty").hide();
@@ -169,6 +174,7 @@ $(document).ready(function(){
             $("#"+(index-added)).next( ".bookmark-divider" ).hide();
             $("#"+(index-added)).remove();
             var bookmarks = document.getElementsByClassName("bookmark");
+            woopra.track("b_version_delete_click");
             if(bookmarks.length == 0){
                 $(".empty").show();
             }
@@ -186,6 +192,7 @@ $(document).ready(function(){
         var index = $(this).attr("id");
         var newComment = $("#c"+index.substring(1)).text();
         index = parseInt(index.substring(1))+added;
+        woopra.track("b_version_edit_click");
         $.post("/mod_mark?action=edit&index="+index+"&comment="+newComment);
     });
 
@@ -194,7 +201,79 @@ $(document).ready(function(){
             var index = $(this).attr("id");
             var newComment = $("#c"+index.substring(1)).text();
             index = parseInt(index.substring(1))+added;
+            woopra.track("b_version_edit_click");
             $.post("/mod_mark?action=edit&index="+index+"&comment="+newComment);
+        }
+    });
+
+    /*** Woopra ***/
+    $("#logistics").click(function(){
+        if(!tag_selected[0]){
+            woopra.track("b_version_logistics_tag_click");
+            tag_selected[0] = true;
+        }
+        else {
+            tag_selected[0] = false
+        }
+    });
+
+    $("#start").click(function(){
+        if(!tag_selected[1]){
+            woopra.track("b_version_start_tag_click");
+            tag_selected[1] = true;
+        }
+        else {
+            tag_selected[1] = false
+        }
+    });
+
+    $("#example").click(function(){
+        if(!tag_selected[2]){
+            woopra.track("b_version_example_tag_click");
+            tag_selected[2] = true;
+        }
+        else {
+            tag_selected[2] = false
+        }
+    });
+
+    $("#assignment").click(function(){
+        if(!tag_selected[3]){
+            woopra.track("b_version_assignment_tag_click");
+            tag_selected[3] = true;
+        }
+        else {
+            tag_selected[3] = false
+        }
+    });
+
+    $("#exam").click(function(){
+        if(!tag_selected[4]){
+            woopra.track("b_version_exam_tag_click");
+            tag_selected[4] = true;
+        }
+        else {
+            tag_selected[4] = false
+        }
+    });
+
+    $("#question").click(function(){
+        if(!tag_selected[5]){
+            woopra.track("b_version_question_tag_click");
+            tag_selected[5] = true;
+        }
+        else {
+            tag_selected[5] = false
+        }
+    });
+
+    $("#end").click(function(){
+        if(!tag_selected[6]){
+            woopra.track("b_version_end_tag_click");
+            tag_selected[6] = true;
+        }
+        else {
+            tag_selected[6] = false
         }
     });
 });
