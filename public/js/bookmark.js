@@ -5,6 +5,7 @@ $(document).ready(function(){
     var currID = "";
     var added = 0;
     var ptr = 0;
+    var list_of_add = [];
 
     $(".interval-comment").prop('disabled', true);
 
@@ -101,6 +102,9 @@ $(document).ready(function(){
                 return;
             if(!comment)
                 comment = "No Comment";
+            woopra.track("a_version_comment_input", {
+                message: comment
+            });
             $(".interval-comment").val("");
             ptr--;
             var url = "/add_mark?start="+sTime+"&end="+pushedAt+"&comment="+comment;
