@@ -41,7 +41,7 @@ function onceClear(err) {
     var to_save_count = user_json.length;
     for (var i = 0; i < user_json.length; i++) {
         var json = user_json[i];
-        var user = new models.Project(json);
+        var user = new models.User(json);
 
         user.save(function(err, user) {
             if (err) console.log(err);
