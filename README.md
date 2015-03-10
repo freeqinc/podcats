@@ -15,7 +15,7 @@ Here is the list of dependencies:
 * Mongoose 3.8.23
 * Morgan 1.5.1
 
-##Start DB (localhost):
+##Starting DB (localhost):
 Normally, localhost (especially not in virtual environment), MongoDB server will not start by default. To run application in localhost, one need to manually run MongoDB server. To do so, open another terminal and type:
 ```
 mongod --dbpath data/db
@@ -25,4 +25,15 @@ mongod --dbpath data/db
 All server components are handled in server.js file. To run application in NodeJS type:
 ```
 node server.js
+```
+
+##Loading Default User Data
+There are default user credentials available at user.json file. To load these objects to database, before Node server is running, type:
+```
+node initDB.js
+```
+###On Heroku
+After deploying application to Heroku, type:
+```
+heroku run node initDB.js
 ```
