@@ -1,103 +1,103 @@
 <!doctype html>
 
 <html>
+
 <head>
-	<meta charset="utf-8">
-	<meta name=viewport content="width=device-width, initial-scale=.6">
-	<link rel="stylesheet" type="text/css" href="./style/style.css">
-	<link rel="stylesheet" type="text/css" href="./style/podcastit.css">
-	<link rel="stylesheet" type="text/css" href="./icomoon/style.css">
-	<link rel="icon" href="./assets/icon.ico" type="image/x-icon" />
-	<link rel="shortcut icon" href="./assets/icon.ico" type="image/x-icon" />
-	<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script
-	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
-	<script src="./js/jquery.ba-dotimeout.min.js"></script>
-	<script src="./js/velocity.min.js"></script>
-	<script src="./js/nav-animation.js"></script>
-	<script src="./js/common-animation.js"></script>
-	<script src="./js/course-fold.js"></script>
-	<script src="./js/importnav.js"></script>
-	<script src="./js/podcatsit.js"></script>
-	<script src="./js/limit.js"></script>
-	{{> tracking_code_script}}
-	<title>PodCats | Live Lecture</title>
+    <meta charset="utf-8">
+    <meta name=viewport content="width=device-width, initial-scale=.6">
+    <link rel="stylesheet" type="text/css" href="./style/style.css">
+    <link rel="stylesheet" type="text/css" href="./style/podcastit.css">
+    <link rel="stylesheet" type="text/css" href="./icomoon/style.css">
+    <link rel="icon" href="./assets/icon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="./assets/icon.ico" type="image/x-icon" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+    <script src="./js/jquery.ba-dotimeout.min.js"></script>
+    <script src="./js/velocity.min.js"></script>
+    <script src="./js/nav-animation.js"></script>
+    <script src="./js/common-animation.js"></script>
+    <script src="./js/course-fold.js"></script>
+    <script src="./js/importnav.js"></script>
+    <script src="./js/podcatsit.js"></script>
+    <script src="./js/limit.js"></script>
+    {{> tracking_code_script}}
+    <title>PodCats | Live Lecture</title>
 </head>
 
 <body>
-	<script type="text/javascript">
-	importnav();
-	</script>
-	<div class="page-wrap">
-		<div class="lecture-title">{{course}} | {{date}}</div>
-		<div class="time">{{timeString}}</div>
+    <script type="text/javascript">
+    importnav();
+    </script>
+    <div class="page-wrap">
+        <div class="lecture-title">{{course}} | {{date}}</div>
+        <div class="time">{{timeString}}</div>
 
 
-		<div class="control-buttons">
-
-			
-
-			<div class="interval-button control-button">
-				<div class="startstop-icon">
-					<span class="icon-bookmark ssi ssi-play"></span>
-					<span class="icon-stop ssi ssi-stop"></span>
-				</div>
-				<input type="text" id="text" maxlength="100" class="interval-comment" placeholder="Press here to begin a mark">
-				<div class="interval-text it-1">Begin mark&nbsp;</div>
-				<div class="interval-text it-2">End mark&nbsp;&nbsp;</div>
-
-			</div>
-			<div class="charlim">
-				Characters Left:
-				<span class="numleft">100</span>
-			</div>
-		</div>
+        <div class="control-buttons">
 
 
-		<div id="stack">
-			{{#if marks}}
-			{{#each marks}}
-			<div id="{{@index}}" class="bookmark">
-				{{#if time}}
-				<div class="bookmark-start-time">
-					{{time}}
-				</div>
-				<div id="d{{@index}}" class="bookmark-delete bookmark-icon">
-					<span class="icon-trash"></span>
-				</div>
-				<br/>
-				<span class="icon-bolt"></span>
-				{{else}}
-				<div class="bookmark-start-time">
-					{{start}}
-				</div>
 
-				<div id="d{{@index}}" class="bookmark-delete bookmark-icon">
-					<span class="icon-trash"></span>
-				</div>
-				<div class="bookmark-edit bookmark-icon">
-					<span class="icon-pencil"></span>
-				</div>
-				<div id="e{{@index}}" class="bookmark-check bookmark-icon">
-					<span class="icon-checkmark"></span>
-				</div>
+            <div class="interval-button control-button">
+                <div class="startstop-icon">
+                    <span class="icon-bookmark ssi ssi-play"></span>
+                    <span class="icon-stop ssi ssi-stop"></span>
+                </div>
+                <input type="text" id="text" maxlength="100" class="interval-comment" placeholder="Press here to begin a mark">
+                <div class="interval-text it-1">Begin mark&nbsp;</div>
+                <div class="interval-text it-2">End mark&nbsp;&nbsp;</div>
 
-				<div class="bookmark-end-time">
-					{{end}}
-				</div>
-				<br/><br/>
-				<div id="c{{@index}}" class="bookmark-comment editable">{{{comment}}}</div>
-				{{/if}}
-			</div>
-			<div class="bookmark-divider"></div>
-			{{/each}}
-			{{else}}
-			<div class="empty">No Comments Available!</div>
-			{{/if}}
-		</div>
+            </div>
+            <div class="charlim">
+                Characters Left:
+                <span class="numleft">100</span>
+            </div>
+        </div>
 
-	<!--<div class="podcats-button" id="pb-1">!</div>
+
+        <div id="stack">
+            {{#if marks}}
+            {{#each marks}}
+            <div id="{{@index}}" class="bookmark">
+                {{#if time}}
+                <div class="bookmark-start-time">
+                    {{time}}
+                </div>
+                <div id="d{{@index}}" class="bookmark-delete bookmark-icon">
+                    <span class="icon-trash"></span>
+                </div>
+                <br/>
+                <span class="icon-bolt"></span>
+                {{else}}
+                <div class="bookmark-start-time">
+                    {{start}}
+                </div>
+
+                <div id="d{{@index}}" class="bookmark-delete bookmark-icon">
+                    <span class="icon-trash"></span>
+                </div>
+                <div class="bookmark-edit bookmark-icon">
+                    <span class="icon-pencil"></span>
+                </div>
+                <div id="e{{@index}}" class="bookmark-check bookmark-icon">
+                    <span class="icon-checkmark"></span>
+                </div>
+
+                <div class="bookmark-end-time">
+                    {{end}}
+                </div>
+                <br/>
+                <br/>
+                <div id="c{{@index}}" class="bookmark-comment editable">{{{comment}}}</div>
+                {{/if}}
+            </div>
+            <div class="bookmark-divider"></div>
+            {{/each}}
+            {{else}}
+            <div class="empty">No Comments Available!</div>
+            {{/if}}
+        </div>
+
+        <!--<div class="podcats-button" id="pb-1">!</div>
 		<div class="podcats-button" id="pb-2">?</div>
 		<div id="stack">
 			{{#each marks}}
@@ -114,10 +114,10 @@
 
 
 
-		<script type="text/javascript" src="./js/bookmark.js"></script>
-	</div>
+        <script type="text/javascript" src="./js/bookmark.js"></script>
+    </div>
 
 
 </body>
-</html>
 
+</html>

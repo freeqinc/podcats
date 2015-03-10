@@ -11,9 +11,11 @@
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script
 	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+	<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/tripledes.js"></script>
 	<script src="./js/velocity.min.js"></script>
 	<script src="./js/loginanimation.js"></script>
 	<script src="./js/common-animation.js"></script>
+	<script src="./js/login.js"></script>
 	<title>PodCats</title>
 </head>
 
@@ -39,77 +41,10 @@
 			<div class="the-text">Password</div>
 		</div>
 		
-		<div class="button login">LOGIN
+		<div id="login" class="button login">LOGIN
 			<a class="hidden-link"></a>
 		</div>
 		<div class="button signup">SIGN UP</div>
-		<script type="text/javascript">
-		$(".login").click(function() {
-			var username = $(".ti-1").val();
-			var password = $(".ti-2").val();
-			$.post("/validate?username="+username+"&password="+password, function(result){
-				if(result["1"] && result["2"]){
-					$('.the-input').val("");
-					window.location.href = '/classes';
-						//window.location.replace("/classes");
-				}
-				else {
-						alert("Invalid username and/or password");
-						return;
-				}
-			});
-		});
-		$('.signup').click(function(){
-			var username = $(".ti-1").val();
-			var password = $(".ti-2").val();
-			if (username.length == 0 || password.length == 0){
-				alert("Please enter a username and password to signup.");
-				return;
-			}
-			else {
-				$.post("/register?username="+username+"&password="+password, function(result){
-					$(".ti-1").val("");
-					$(".ti-2").val("");
-					alert("Sign-up successful!");
-					window.location.replace("/classes");
-				});
-			}
-		});
-		$(".ti-1").keypress(function(e){
-			if(e.which == 13){
-				var username = $(".ti-1").val();
-				var password = $(".ti-2").val();
-				$.post("/validate?username="+username+"&password="+password, function(result){
-					if(result["1"] && result["2"]){
-						$('.the-input').val("");
-						window.location.href = '/classes';
-							//window.location.replace("/classes");
-					}
-					else {
-							alert("Invalid username and/or password");
-							return;
-					}
-				});
-			}
-		});
-		$(".ti-2").keypress(function(e){
-			if(e.which == 13){
-				var username = $(".ti-1").val();
-				var password = $(".ti-2").val();
-				$.post("/validate?username="+username+"&password="+password, function(result){
-					if(result["1"] && result["2"]){
-						$('.the-input').val("");
-						window.location.href = '/classes';
-							//window.location.replace("/classes");
-					}
-					else {
-							alert("Invalid username and/or password");
-							return;
-					}
-				});
-			}
-		});
-		</script>
 
 	</div>
 </body>

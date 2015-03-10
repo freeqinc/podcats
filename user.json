@@ -1,11 +1,26 @@
-{
-	"valid":
-	[
-		{"username" : "test@ucsd.edu", "password" : "password", "title":"student"},
-		{"username" : "", "password" : "", "title":"student"},
-		{"username" : "bsoe@ucsd.edu", "password":"", "title":"student"},
-		{"username" : "jeqin@ucsd.edu", "password":"", "title":"student"},
-		{"username" : "cvd001@ucsd.edu", "password":"", "title":"student"},
-		{"username" : "prof@ucsd.edu", "password":"", "title":"professor"}
-	]
-}
+[
+	{
+	    "username": "bsoe@ucsd.edu",
+	    "password": "brian",
+	    "online": false,
+	    "courses": []
+	},
+	{
+	    "username": "jeqin@ucsd.edu",
+	    "password": "jesse",
+	    "online": false,
+	    "courses": []
+	},
+	{
+	    "username": "cvd001@ucsd.edu",
+	    "password": "christine",
+	    "online": false,
+	    "courses": []
+	},
+	{
+	    "username": "",
+	    "password": "",
+	    "online": false,
+	    "courses": []
+	}
+]

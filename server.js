@@ -4,6 +4,7 @@ var logger = require('morgan'); // Updated express.logger to Express 4 middlewar
 var compression = require('compression'); // Updated express.compress to Express 4 middleware
 var path = require('path');
 var hbs = require('hbs');
+var mongoose = require('mongoose');
 hbs.registerPartial('partial_name', 'partial value');
 hbs.registerPartials(__dirname + '/views/partials');
 //var handlebars = require('express-handlebars');
@@ -17,6 +18,16 @@ var professor = require('./routes/professor');
 var help = require('./routes/help');
 var settings = require('./routes/settings');
 var watch = require('./routes/watch');
+
+var local_database_name = 'podcats';
+var local_database_uri = 'mongodb://127.0.0.1/' + local_database_name
+var database_uri = process.env.MONGOLAB_URI || local_database_uri
+mongoose.connect(database_uri);
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function callback() {
+    console.log("DB Connected");
+});
 
 // Create the server instance
 var app = express();
@@ -42,7 +53,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Start the server
 var port = process.env.PORT || PORT; // 80 for web, 3000 for development
 app.listen(port, function() {
-	console.log("Node.js server running on port %s", port);
+    console.log("Node.js server running on port %s", port);
 });
 
 // routes
