@@ -25,7 +25,7 @@ exports.classList = function(req, res) {
     console.log(req.query);
     if (!("id" in req.query)) {
         //console.log('here');
-        res.redirect('/');
+        //res.redirect(200,'/');
     } /*else {
         var id = req.query["id"];
         models.User
