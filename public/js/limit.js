@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	var limit = 100;
+	var limit = 80;
 	var typed = 0;
 	$(".numleft").html(limit);
 

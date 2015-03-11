@@ -149,7 +149,7 @@ input {
 
 .bookmark *{
 	display: inline-block;
-	font-size: 1.8em;
+	font-size: 2em;
 }
 
 .bookmark{
@@ -165,7 +165,7 @@ input {
 
 .bookmark-end-time{
 	position: absolute;
-	left: 92px;
+	left: 100px;
 }
 
 .bookmark-icon{
@@ -254,7 +254,7 @@ input {
 	position: absolute;
 	right: 0;
 	top: 0;
-	font-size: 1.2em;
+	font-size: 0.7em;
 	visibility: hidden;
 }
 

@@ -65,7 +65,7 @@ $(window).load(function() {
 				easing: ssiType
 			});
 
-			$(".interval-comment").attr("placeholder", "Optional comment").val("").focus().blur();
+			$(".interval-comment").attr("placeholder", "Type to comment. Click to submit.").val("").focus().blur();
 			$('.interval-comment').velocity({'backgroundColorAlpha':0.2},1);
 			$('.interval-comment').focus();
 		} 
@@ -99,12 +99,13 @@ $('#stack').on("click", ".bookmark-edit", function(){
 	$(this).parent().find('.tag-close').addClass('tag-close-edit');
 	$(this).parent().find('.tag-comment').addClass('tag-comment-point');
 	var comment = $(this).siblings('.bookmark-comment');
+	var tag_comment = comment.find(".tag-comment");
 	comment.attr('contenteditable','true');
-	comment.focus();
-	placeCaretAtEnd(comment.get(0));
+	tag_comment.focus();
+	placeCaretAtEnd(tag_comment.get(0));
 	$(this).fadeOut(1);
 	$(this).parent().find('.bookmark-check').fadeIn(1);
-	rename.attr('contenteditable','true');
+	//rename.attr('contenteditable','true');
 
 });
 
