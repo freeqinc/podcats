@@ -122,6 +122,10 @@ $('#stack').on("click", ".bookmark-check", function(){
 });
 
 
+$(".interval-comment").on("keyup", function(){
+	$('.interval-comment').focus();
+});
+
 $('.interval-comment').keypress(function(e){
 	if(e.which == 13){
 		$(this).closest('.interval-button').trigger('click');

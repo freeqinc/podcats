@@ -190,7 +190,9 @@ $(document).ready(function(){
 
     $("#stack").on("click", ".bookmark-check", function(){
         var index = $(this).attr("id");
-        var newComment = $("#c"+index.substring(1)).text();
+        $("#c"+index.substring(1)).find('.tag-close').removeClass('tag-close-edit');
+        $("#c"+index.substring(1)).find('.tag-comment').removeClass('tag-comment-point');
+        var newComment = $("#c"+index.substring(1)).html();
         index = parseInt(index.substring(1))+added;
         woopra.track("b_version_edit_click");
         $.post("/mod_mark?action=edit&index="+index+"&comment="+newComment);

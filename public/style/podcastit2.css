@@ -13,6 +13,12 @@
 	color:    #F3C4CB;
 }
 
+input {
+	-webkit-user-select: text;
+	-moz-user-select: text;
+	-ms-user-select: text;
+	user-select: text;
+}
 
 .page-wrap{
 	padding-top: 40px;
@@ -130,6 +136,10 @@
 	padding-left: 70px;
 	background: rgba(255,255,255,0);
 	cursor: pointer;
+	-webkit-user-select: text;
+	-moz-user-select: text;
+	-ms-user-select: text;
+	user-select: text;
 }
 
 
@@ -139,7 +149,7 @@
 
 .bookmark *{
 	display: inline-block;
-	font-size: 2em;
+	font-size: 1.8em;
 }
 
 .bookmark{
@@ -155,7 +165,7 @@
 
 .bookmark-end-time{
 	position: absolute;
-	left: 140px;
+	left: 92px;
 }
 
 .bookmark-icon{
@@ -169,7 +179,7 @@
 }
 
 .bookmark-edit{
-	right: 75px;
+	right: 60px;
 }
 
 .bookmark-check{
