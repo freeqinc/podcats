@@ -63,9 +63,9 @@ $(document).ready(function() {
 
     function check_charcount(content_id, max, e) {
         var content = $(content_id).html().substring(0, $(content_id).html().indexOf('<br>'));
-        console.log(content.length);
+        console.log(content.length-30);
         //console.log($(content_id).text().length);
-        if (e.which != 8 && content.length >= max) {
+        if (e.which != 8 && (content.length - 30 )>= max) {
             // $('#'+content_id).text($('#'+content_id).text().substring(0, max));
             e.preventDefault();
         }
@@ -120,10 +120,13 @@ $(document).ready(function() {
                 }
             });
             if (comment == "" && tags == "") {
-                comment = "No Comment";
+                comment = '<div class="bk-comment">' + "No Comment" + '</div>';
+                //comment = "No Comment";
             } else if (comment != '') {
+                comment = '<div class="bk-comment">' + comment + '</div>';
                 comment += "<br/>" + tags;
             } else {
+                comment = '<div class="bk-comment">' + comment + '</div>';
                 comment += tags;
             }
             if (sTime == pushedAt)

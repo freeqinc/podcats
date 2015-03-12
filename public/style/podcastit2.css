@@ -193,6 +193,11 @@ input {
 	text-align: left;
 }
 
+.bk-comment{
+	font-size: 1em;
+	outline: 0px solid transparent;
+}
+
 .bookmark-divider{
 	margin: 0 auto;
 	margin-top: 15px;

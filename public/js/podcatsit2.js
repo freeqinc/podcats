@@ -99,11 +99,12 @@ $('#stack').on("click", ".bookmark-edit", function(){
 	$(this).parent().find('.tag-close').addClass('tag-close-edit');
 	$(this).parent().find('.tag-comment').addClass('tag-comment-point');
 	var comment = $(this).siblings('.bookmark-comment');
+	var bkcomment = comment.find('.bk-comment');
 	var tag_comment = comment.find(".tag-comment");
-	comment.attr('contenteditable','true');
+	bkcomment.attr('contenteditable','true');
 	//console.log(tag_comment.get(0));
-	comment.focus();
-	placeCaretAtEnd(comment.get(0));
+	bkcomment.focus();
+	placeCaretAtEnd(bkcomment.get(0));
 	$(this).fadeOut(1);
 	$(this).parent().find('.bookmark-check').fadeIn(1);
 	//rename.attr('contenteditable','true');
@@ -118,7 +119,8 @@ $('#stack').on("click", ".bookmark-check", function(){
 	$(this).parent().find('.tag-close').removeClass('tag-close-edit');
 	$(this).parent().find('.tag-comment').removeClass('tag-comment-point');
 	var comment = $(this).siblings('.bookmark-comment');
-	comment.attr('contenteditable','false');
+	var bkcomment = comment.find('.bk-comment');
+	bkcomment.attr('contenteditable','false');
 	$(this).fadeOut(1);
 	$(this).parent().find('.bookmark-edit').fadeIn(1);
 });
@@ -149,12 +151,14 @@ $('.tag').click(function(){
 
 $("#stack").on("keypress", ".editable", function(e){
 	if(e.which == 13){
-		$(this).parent().find('.tag-close').removeClass('tag-close-edit');
-		$(this).parent().find('.tag-comment').removeClass('tag-comment-point');
+		console.log("poop");
+		$(this).parent().parent().find('.tag-close').removeClass('tag-close-edit');
+		$(this).parent().parent().find('.tag-comment').removeClass('tag-comment-point');
 		var checkmark = $(this).siblings('.bookmark-check');
-		$(this).attr('contenteditable','false');
+		$(this).find('.bk-comment').attr('contenteditable','false');
 		checkmark.fadeOut(1);
 		checkmark.parent().find('.bookmark-edit').fadeIn(1);
+		return false;
 	}
 });
 
