@@ -111,16 +111,16 @@ $(document).ready(function() {
             $(".interval-comment").prop('disabled', false);
             woopra.track("b_version_tag_click");
         } else {
-            var comment = '<div contenteditable="false">'+$(".interval-comment").val()+"</div>";
+            var comment = $(".interval-comment").val();
             var tags = "";
             $('.tag').each(function() {
                 if ($(this).find('.tag-selected').html() == "true") {
                     tags += '<span class="tag-comment">' + $(this).find('.tag-text').html();
-                    tags += '<div><span class="tag-close icon-cross"></span></div></span> ';
+                    tags += '<span class="tag-close icon-cross"></span></span> ';
                 }
             });
             if (comment == "" && tags == "") {
-                comment = '<div contenteditable="false">No Comment</div>';
+                comment = "No Comment";
             } else if (comment != '') {
                 comment += "<br/>" + tags;
             } else {

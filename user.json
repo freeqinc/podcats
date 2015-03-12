@@ -22,5 +22,11 @@
 	    "password": "",
 	    "online": false,
 	    "courses": []
+	},
+	{
+		"username": "test@ucsd.edu",
+		"password": "password",
+		"online": false,
+		"courses": []
 	}
 ]

@@ -100,9 +100,10 @@ $('#stack').on("click", ".bookmark-edit", function(){
 	$(this).parent().find('.tag-comment').addClass('tag-comment-point');
 	var comment = $(this).siblings('.bookmark-comment');
 	var tag_comment = comment.find(".tag-comment");
-	//comment.attr('contenteditable','true');
-	tag_comment.focus();
-	placeCaretAtEnd(tag_comment.get(0));
+	comment.attr('contenteditable','true');
+	//console.log(tag_comment.get(0));
+	comment.focus();
+	placeCaretAtEnd(comment.get(0));
 	$(this).fadeOut(1);
 	$(this).parent().find('.bookmark-check').fadeIn(1);
 	//rename.attr('contenteditable','true');
