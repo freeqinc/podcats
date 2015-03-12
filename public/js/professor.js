@@ -90,6 +90,7 @@ $(window).load(function() {
 			ssi = true;
 			$('.ssi, .interval-text').velocity('reverse',ssiTime);
 		}
+		setTimeout(function(){location.reload();},125);
 	});
 
 	$('.control-button').click(function(){

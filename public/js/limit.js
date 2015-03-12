@@ -28,14 +28,14 @@ $(document).ready(function(){
 	});
 
 	$(".interval-comment").click(function(){
-		limit = 100;
+		limit = 80;
 		$(".numleft").html(limit);
 		$(".charlim").css({"color":"white"});
 	});
 
 	$('.interval-comment').keypress(function(e){
 		if(e.which == 13){
-			limit = 100;
+			limit = 80;
 			$(".numleft").html(limit);
 			$(".charlim").css({"color":"white"});
 		}

@@ -131,6 +131,7 @@ body {
 	/*background-color: #FFAF30;*/
 	background: #FF8856;
 	position: relative;
+	overflow-x: hidden;
 }
 
 /* NAVIGATION STYLE */
